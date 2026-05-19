@@ -8,6 +8,7 @@ authors:
   - family-names: "Tang"
     given-names: "Christina"
 repository-code: "https://github.com/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates"
+doi: "10.5281/zenodo.20278328"
 date-released: "2026-05-18"
 license: "Apache-2.0"
 keywords:
