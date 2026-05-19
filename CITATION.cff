@@ -7,6 +7,15 @@ authors:
     given-names: "Bhalaji Yadav"
   - family-names: "Tang"
     given-names: "Christina"
-repository-code: "TBD"
-doi: "TBD"
-date-released: "2026-05-14"
+repository-code: "https://github.com/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates"
+date-released: "2026-05-18"
+license: "Apache-2.0"
+keywords:
+  - peel test
+  - T-peel
+  - adhesion
+  - soft substrates
+  - textiles
+  - force-displacement analysis
+  - stick-slip
+  - Peel Stability Index
