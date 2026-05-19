@@ -1,4 +1,7 @@
-# Peel Trace Evaluation for Soft Substrates — v1.4.0-rc7 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates/main?filepath=Peel_Trace_Evaluation_for_Soft_Substrates.ipynb)
+# Peel Trace Evaluation for Soft Substrates — v1.4.0-rc7 
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20278328.svg)](https://doi.org/10.5281/zenodo.20278328)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates/main?filepath=Peel_Trace_Evaluation_for_Soft_Substrates.ipynb)
 
 **Peel Trace Evaluation for Soft Substrates** is a manuscript-baseline Jupyter/Colab workflow for analyzing force–displacement peel traces from soft textiles, flexible laminates, wearable-device prototypes, pressure-sensitive adhesive systems, and related compliant bonded materials.
 
@@ -114,7 +117,12 @@ The exact output-consistency count is dynamic because it depends on exported tab
 
 ## Citation and license
 
-A draft `CITATION.cff` and license placeholder are included. Final repository citation, DOI, and license should be updated after GitHub/Zenodo release and PI/coauthor approval.
+If you use this software, please cite the archived Zenodo release:
+
+**Peel Trace Evaluation for Soft Substrates — v1.4.0-rc7**  
+Zenodo. https://doi.org/10.5281/zenodo.20278328
+
+The software code is released under the Apache License 2.0. See `LICENSE` for details.
 
 
 ## v1.4.0-rc7 release-candidate additions
