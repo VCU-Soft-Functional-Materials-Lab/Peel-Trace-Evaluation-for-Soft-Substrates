@@ -1,0 +1,3 @@
+main_group,include_group,width_mm,thickness_mm,bond_length_mm,force_unit,displacement_unit,notes
+82N,TRUE,20,0.40,25,N,mm,Paper example values; confirm for own data
+SCOTCH TAPE T PEEL,TRUE,19,0.060,25,N,mm,Built-in validation example

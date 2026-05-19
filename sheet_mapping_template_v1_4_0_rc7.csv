@@ -1,0 +1,2 @@
+sheet,include,main_group,adhesive,replicate_id,force_column,displacement_column,force_unit,displacement_unit,width_mm,thickness_mm,bond_length_mm,notes
+Example_Test1,TRUE,82N,Fabri-Fuse,1,Force (N),Distance (mm),N,mm,20,0.40,25,Edit after scan if needed
