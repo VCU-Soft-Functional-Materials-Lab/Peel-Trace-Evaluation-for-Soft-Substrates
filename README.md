@@ -255,11 +255,13 @@ Main points:
 
 No manuscript-baseline formulas or locked analysis settings are changed by this documentation cleanup.
 
-## Citation and license
+## Citation, license, and contributions
 
 This repository is distributed under the Apache License 2.0. See [`LICENSE`](LICENSE) for the full license text.
 
 Citation information is provided in [`CITATION.cff`](CITATION.cff). The repository also includes the bundled Scotch Tape validation file, manuscript-baseline method profile, and notebook workflow for reproducible peel-trace analysis.
+
+For contribution, branching, validation, and release-preparation guidance, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Software archive
 
