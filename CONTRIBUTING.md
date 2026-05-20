@@ -73,6 +73,8 @@ Before creating a release or merging software changes into `main`, check that:
 - README version matches the notebook/backend version;
 - `CHANGELOG.md` is updated.
 
+For the full pre-merge and release checklist, see [`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md).
+
 ## 6. Modified or recovery profiles
 
 Modified settings are allowed for recovery or sensitivity analysis, but outputs should remain labeled as:
