@@ -1,10 +1,50 @@
+# OS/system files
 desktop.ini
 Thumbs.db
 .DS_Store
 
+# Python cache files
 __pycache__/
 *.py[cod]
+*$py.class
 
+# Jupyter notebook checkpoints
 .ipynb_checkpoints/
 
+# Local virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Editor/project settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+~$*
+
+# Generated analysis output folders
 Peel_Analysis_Output*/
+qc_plots/
+outputs/
+analysis_outputs/
+run_outputs/
+
+# Generated analysis output files
+analysis_report.xlsx
+paper_metrics.csv
+group_summary.csv
+diagnostic_summary.csv
+issue_action_table.csv
+validation_count_summary.csv
+output_consistency_audit.csv
+formula_dictionary.csv
+metric_guide.csv
+provenance.json
+manuscript_baseline_outputs.zip
