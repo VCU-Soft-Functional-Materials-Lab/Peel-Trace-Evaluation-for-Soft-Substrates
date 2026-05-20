@@ -216,6 +216,8 @@ For a more detailed step-by-step guide, see [`docs/WORKFLOW.md`](docs/WORKFLOW.m
 - If output consistency fails, do not use the exported CSV/Excel outputs until rerunning or debugging.
 - If no post-window break/drop is detected, the final recorded displacement is used as a terminal-displacement fallback and explicitly flagged.
 
+For detailed troubleshooting guidance, see [`docs/TROUBLESHOOTING.md`](docs/TROUBLESHOOTING.md).
+
 ## Repository layout
 
 The root-level notebook and backend are kept at the repository root so Binder, Colab, and local Jupyter can run without path edits. Supporting files are organized into folders for method profiles, templates, validation data, and documentation.
