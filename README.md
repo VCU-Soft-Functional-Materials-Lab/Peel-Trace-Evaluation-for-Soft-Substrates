@@ -204,6 +204,8 @@ The exact output-consistency count is dynamic because it depends on exported tab
 8. Use **Step 6** only for recovery or sensitivity analysis. These outputs are labeled `NON_MANUSCRIPT_MODIFIED` and should not be mixed with manuscript-baseline outputs unless explicitly disclosed.
 9. Use **Step 7** only after a trusted run to review reproducibility guidance or create optional user benchmarks.
 
+For a more detailed step-by-step guide, see [`docs/WORKFLOW.md`](docs/WORKFLOW.md).
+
 ## Troubleshooting notes
 
 - If a trace fails because no 25 mm window is valid, inspect displacement units and trace length first.
