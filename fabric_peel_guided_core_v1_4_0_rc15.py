@@ -572,9 +572,9 @@ def is_user_data_file(path: str) -> bool:
     exclude_exact = {
         # Included package validation workbook. It is run by the built-in validation cell,
         # not offered as a normal user-upload candidate.
-        "scothtapetpeel.xlsx",
-        "scothtapetpeel.xls",
-        "scothtapetpeel.csv",
+        "Scotchtapetpeel.xlsx",
+        "Scotchtapetpeel.xls",
+        "Scotchtapetpeel.csv",
         "scotchtapetpeel.xlsx",
         "scotchtapetpeel.xls",
         "scotchtapetpeel.csv",
