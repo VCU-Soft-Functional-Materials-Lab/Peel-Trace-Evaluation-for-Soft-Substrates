@@ -92,3 +92,12 @@ Long release-history notes should not be placed in the main `README.md`.
 ## 8. General rule
 
 Keep the README concise. Put detailed instructions in the `docs/` folder.
+
+## 9. License
+
+By contributing to this repository, contributors agree that their contributions are provided under the repository license:
+
+`Apache License 2.0`
+
+See [`LICENSE`](LICENSE) for the full license text.
+
