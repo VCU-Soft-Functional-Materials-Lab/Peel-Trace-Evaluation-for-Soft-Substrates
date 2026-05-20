@@ -121,6 +121,8 @@ Modified settings are allowed only as `NON_MANUSCRIPT_MODIFIED` recovery or sens
 
 The notebook can suggest global recovery settings from baseline diagnostics. These suggestions are based on trace feasibility and QC flags, not on optimizing adhesive rankings.
 
+For details on the locked manuscript-baseline profile, user-created profiles, and modified-profile reporting rules, see [`docs/METHOD_PROFILE.md`](docs/METHOD_PROFILE.md).
+
 ## Required input data
 
 The input file must contain at least one force column and one displacement column for each peel trace. The notebook scans Excel sheets or CSV files and lets the user confirm the correct columns before analysis.
