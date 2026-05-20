@@ -237,8 +237,16 @@ The root-level notebook and backend are kept at the repository root so Binder, C
     ├── fabric_peel_guided_core_v1_4_0_rc15.py
     ├── ScotchTapeTpeel.xlsx
     ├── validation_data/
+    │   ├── ScotchTapeTpeel.xlsx
+    │   └── expected_scotch_validation.csv
     ├── method_profiles/
+    │   └── manuscript_baseline_v1.json
     ├── templates/
+    │   ├── group_defaults_template.csv
+    │   ├── sheet_mapping_template.csv
+    │   ├── user_benchmark_expected_template.csv
+    │   ├── user_benchmark_metadata_template.json
+    │   └── user_method_profile_template.json
     └── docs/
         ├── README.md
         ├── WORKFLOW.md
@@ -246,6 +254,8 @@ The root-level notebook and backend are kept at the repository root so Binder, C
         ├── TROUBLESHOOTING.md
         ├── METHOD_PROFILE.md
         └── RELEASE_CHECKLIST.md
+
+The root-level Scotch Tape workbook is retained for notebook/Binder compatibility, while `validation_data/` stores the organized validation workbook and expected-output reference file used by the built-in validation step.
 
 Use the root notebook for Binder, Colab, and local Jupyter. Keep the built-in Scotch Tape reference file read-only. Create separate `user_profile_*.json` and `user_benchmark_*.csv/json` files for local datasets.
 
