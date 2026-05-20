@@ -227,6 +227,7 @@ The root-level notebook and backend are kept at the repository root so Binder, C
     Peel-Trace-Evaluation-for-Soft-Substrates/
     ├── README.md
     ├── CHANGELOG.md
+    ├── CONTRIBUTING.md
     ├── LICENSE
     ├── CITATION.cff
     ├── requirements.txt
@@ -238,8 +239,16 @@ The root-level notebook and backend are kept at the repository root so Binder, C
     ├── method_profiles/
     ├── templates/
     └── docs/
+        ├── README.md
+        ├── WORKFLOW.md
+        ├── OUTPUT_GUIDE.md
+        ├── TROUBLESHOOTING.md
+        ├── METHOD_PROFILE.md
+        └── RELEASE_CHECKLIST.md
 
 Use the root notebook for Binder, Colab, and local Jupyter. Keep the built-in Scotch Tape reference file read-only. Create separate `user_profile_*.json` and `user_benchmark_*.csv/json` files for local datasets.
+
+For the full documentation index, see [`docs/README.md`](docs/README.md).
 
 ## Version notes
 
