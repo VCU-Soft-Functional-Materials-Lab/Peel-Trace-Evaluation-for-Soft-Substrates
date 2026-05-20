@@ -48,6 +48,7 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Moved long release-candidate history out of `README.md` and into `CHANGELOG.md`.
 - Updated the README to keep public-facing instructions concise while linking to detailed documentation files.
 - Removed the duplicate notebook copy from the `notebooks/` folder; the root notebook remains the public Binder/Colab entry point.
+- Updated `requirements.txt` with compatible version ranges for reproducible Binder/local setup.
 
 ### Safeguards
 
