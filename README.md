@@ -7,6 +7,11 @@
 
 The notebook converts raw peel traces into protocol-defined descriptors of force level, initiation force, force-trace stability, stick–slip amplitude, displacement/break proxy, and group repeatability. It is designed to support reproducible adhesive screening when a single average peel force is not sufficient to describe trace behavior.
 
+<p align="center">
+  <img src="docs/peel_trace_workflow_overview.png" alt="Workflow overview for Peel Trace Evaluation for Soft Substrates" width="1000">
+</p>
+
+**Figure.** Workflow overview for the Peel Trace Evaluation for Soft Substrates repository. The notebook validates a built-in Scotch Tape reference file, guides user-data mapping and profile selection, processes force–displacement traces, extracts protocol-defined peel descriptors, and exports QC plots, metrics, diagnostics, and provenance records.
 
 ## Quick start
 
