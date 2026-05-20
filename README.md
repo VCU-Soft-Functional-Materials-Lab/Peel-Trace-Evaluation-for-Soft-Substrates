@@ -7,6 +7,11 @@
 
 The notebook converts raw peel traces into protocol-defined descriptors of force level, initiation force, force-trace stability, stick–slip amplitude, displacement/break proxy, and group repeatability. It is designed to support reproducible adhesive screening when a single average peel force is not sufficient to describe trace behavior.
 
+<p align="center">
+  <img src="docs/peel_trace_workflow_overview.png" alt="Workflow overview for Peel Trace Evaluation for Soft Substrates" width="1000">
+</p>
+
+**Figure.** Workflow overview for the Peel Trace Evaluation for Soft Substrates repository. The notebook validates a built-in Scotch Tape reference file, guides user-data mapping and profile selection, processes force–displacement traces, extracts protocol-defined peel descriptors, and exports QC plots, metrics, diagnostics, and provenance records.
 
 ## Quick start
 
@@ -55,6 +60,7 @@ Install the required packages:
 pip install -r requirements.txt
 pip install jupyterlab
 ```
+The Python package dependencies are listed in [`requirements.txt`](requirements.txt). The listed versions reflect the environment used for the manuscript-baseline workflow and Binder-compatible execution.
 
 Start Jupyter:
 
@@ -253,7 +259,8 @@ The root-level notebook and backend are kept at the repository root so Binder, C
         ├── OUTPUT_GUIDE.md
         ├── TROUBLESHOOTING.md
         ├── METHOD_PROFILE.md
-        └── RELEASE_CHECKLIST.md
+        ├── RELEASE_CHECKLIST.md
+        └── peel_trace_workflow_overview.png
 
 The root-level Scotch Tape workbook is retained for notebook/Binder compatibility, while `validation_data/` stores the organized validation workbook and expected-output reference file used by the built-in validation step.
 
