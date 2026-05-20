@@ -172,13 +172,15 @@ The exact output-consistency count is dynamic because it depends on exported tab
 
 ## Recommended workflow
 
-1. Run setup and built-in reference validation. Later steps are blocked unless this passes.
-2. Select or upload a real force-displacement data file. Profile, benchmark, template, and prior-output files are filtered out of the raw-data selector.
-3. Scan and confirm sheet mapping: columns, units, include/exclude choices, geometry, group labels, adhesive labels, and notes.
-4. Choose the analysis profile: read-only `manuscript_baseline_v1`, a saved user profile, or a newly created user profile. The user-profile editor is hidden unless create/edit mode is selected.
-5. Run the analysis and inspect compact diagnostics, QC plots, and export integrity.
-6. Optionally use recovery/sensitivity tools to compare the active profile with suggested global recovery settings.
-7. Use the reproducibility manager only after a trusted run to create or validate user benchmarks and review next-step guidance.
+1. Open `Peel_Trace_Evaluation_for_Soft_Substrates.ipynb`.
+2. Run **Step 0** to load packages, initialize the notebook, and import the backend.
+3. Run **Step 1** to validate the bundled Scotch Tape reference file. Later analysis steps are blocked unless this validation passes.
+4. Run **Step 2** to upload or select the real force-displacement data file.
+5. Run **Step 3** to confirm sheet inclusion, force and displacement columns, units, specimen geometry, group labels, adhesive labels, and notes.
+6. Run **Step 4** to choose the analysis profile. Use the read-only `manuscript_baseline_v1` profile for manuscript-baseline analysis.
+7. Run **Step 5** to generate per-trace metrics, group summaries, QC plots, diagnostic tables, export audits, and the output archive.
+8. Use **Step 6** only for recovery or sensitivity analysis. These outputs are labeled `NON_MANUSCRIPT_MODIFIED` and should not be mixed with manuscript-baseline outputs unless explicitly disclosed.
+9. Use **Step 7** only after a trusted run to review reproducibility guidance or create optional user benchmarks.
 
 ## Troubleshooting notes
 
