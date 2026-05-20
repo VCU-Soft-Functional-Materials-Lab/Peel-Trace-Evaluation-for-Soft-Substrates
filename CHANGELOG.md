@@ -48,3 +48,4 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - The root notebook is kept at the repository root for Binder, Colab, and local Jupyter compatibility.
 - The backend Python file is imported by the notebook and should not be run directly by most users.
 - Release-specific interface notes are documented here instead of in the main README.
+- The bundled Scotch Tape validation workbook currently uses the legacy filename `ScothTapeTpeel.xlsx`. This filename is retained in `v1.4.0-rc15` for notebook/backend compatibility and should not be renamed without updating and retesting all validation-file references.
