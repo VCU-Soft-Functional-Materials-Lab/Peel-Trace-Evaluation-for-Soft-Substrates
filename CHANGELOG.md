@@ -26,6 +26,15 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Compact notebook display for audit/output tables, with full tables exported to CSV/Excel.
 - Improved QC-plot layout with figure-level legend, status title, metric boxes, and tighter save padding.
 - Closable help widgets for major mapping, profile, analysis, recovery, benchmark, and output-guide controls.
+- Concise README quick-start instructions for Binder and local Jupyter use.
+- Detailed workflow documentation in `docs/WORKFLOW.md`.
+- Detailed output documentation in `docs/OUTPUT_GUIDE.md`.
+- Troubleshooting documentation in `docs/TROUBLESHOOTING.md`.
+- Method-profile documentation in `docs/METHOD_PROFILE.md`.
+- Documentation index in `docs/README.md`.
+- Release checklist in `docs/RELEASE_CHECKLIST.md`.
+- Contributor guidance in `CONTRIBUTING.md`.
+- `.gitignore` rules for local environments, notebook checkpoints, and generated analysis outputs.
 
 ### Changed
 
@@ -35,6 +44,9 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Step 4 user-profile guidance is shown on demand so the activation button and acknowledgments are easier to find.
 - Detailed audit tables are closed by default in the notebook view.
 - The final reproducibility manager handles user benchmarks without overwriting bundled Scotch reference files.
+- Moved long release-candidate history out of `README.md` and into `CHANGELOG.md`.
+- Updated the README to keep public-facing instructions concise while linking to detailed documentation files.
+- Removed the duplicate notebook copy from the `notebooks/` folder; the root notebook remains the public Binder/Colab entry point.
 
 ### Safeguards
 
