@@ -16,7 +16,7 @@
   "break_proxy_consecutive_points": 1,
   "profile_name": "user_profile_example_non_manuscript",
   "profile_type": "NON_MANUSCRIPT_MODIFIED",
-  "software_version_created": "1.4.0-rc7",
+  "software_version_created": "1.4.0-rc15",
   "important_note": "Edit this copy for your dataset. Do not overwrite the built-in manuscript_baseline_v1 method profile.",
   "profile_id": "user_profile_example_non_manuscript",
   "display_name": "Example non-manuscript user profile",

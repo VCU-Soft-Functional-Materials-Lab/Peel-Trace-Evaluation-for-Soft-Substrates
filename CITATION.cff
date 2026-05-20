@@ -1,12 +1,22 @@
 cff-version: 1.2.0
 title: "Peel Trace Evaluation for Soft Substrates"
-version: "1.4.0-rc7"
+version: "1.4.0-rc15"
 message: "If you use this software, please cite the associated manuscript or repository release."
 authors:
   - family-names: "Kantepalle"
     given-names: "Bhalaji Yadav"
   - family-names: "Tang"
     given-names: "Christina"
-repository-code: "TBD"
-doi: "TBD"
-date-released: "2026-05-14"
+repository-code: "https://github.com/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates"
+doi: "10.5281/zenodo.20278328"
+date-released: "2026-05-19"
+license: "Apache-2.0"
+keywords:
+  - peel test
+  - T-peel
+  - adhesion
+  - soft substrates
+  - textiles
+  - force-displacement analysis
+  - stick-slip
+  - Peel Stability Index

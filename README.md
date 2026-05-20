@@ -1,4 +1,7 @@
-# Peel Trace Evaluation for Soft Substrates — v1.4.0-rc7
+# Peel Trace Evaluation for Soft Substrates — v1.4.0-rc15
+
+<a href="https://doi.org/10.5281/zenodo.20278328"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20278328.svg" alt="DOI"></a>
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates/main?filepath=Peel_Trace_Evaluation_for_Soft_Substrates.ipynb)
 
 **Peel Trace Evaluation for Soft Substrates** is a manuscript-baseline Jupyter/Colab workflow for analyzing force–displacement peel traces from soft textiles, flexible laminates, wearable-device prototypes, pressure-sensitive adhesive systems, and related compliant bonded materials.
 
@@ -87,7 +90,7 @@ Typical outputs include:
 
 ## Built-in validation
 
-The notebook includes a Scotch Tape T-peel validation workbook. In the v1.4.0-rc7 backend test, the validation produced:
+The notebook includes a Scotch Tape T-peel validation workbook. In the v1.4.0-rc15 backend test, the validation produced:
 
 - Scotch expected-output validation: `33/33 PASS`
 - Output consistency audit: `194/194 PASS`
@@ -114,10 +117,9 @@ The exact output-consistency count is dynamic because it depends on exported tab
 
 ## Citation and license
 
-A draft `CITATION.cff` and license placeholder are included. Final repository citation, DOI, and license should be updated after GitHub/Zenodo release and PI/coauthor approval.
+The repository includes a `CITATION.cff`, Apache-2.0 license, bundled Scotch Tape validation file, manuscript-baseline method profile, and notebook workflow for reproducible peel-trace analysis.
 
-
-## v1.4.0-rc7 release-candidate additions
+## v1.4.0-rc15 release-candidate additions
 
 This release-candidate focuses on final interface guardrails before GitHub/Binder packaging. It keeps the manuscript method stable while improving profile selection, window-feasibility warnings, user-benchmark separation, and compact default outputs.
 
@@ -159,7 +161,7 @@ flowchart TD
 ```
 
 
-## v1.4.0-rc7 interface-control notes
+## v1.4.0-rc15 interface-control notes
 
 This release candidate adds several notebook-facing safeguards before public GitHub/Binder testing:
 
@@ -172,7 +174,7 @@ This release candidate adds several notebook-facing safeguards before public Git
 - Built-in reference validation remains separate from user-run diagnostics; downstream cells require Step 1 PASS.
 
 
-## GitHub repository layout used in rc7
+## GitHub repository layout used in v1.4.0-rc15
 
 This release also includes a GitHub-ready repository ZIP. The root-level notebook and backend are kept at the repository root so Binder, Colab, and local Jupyter can run without path edits. Supporting files are duplicated into organized folders for clarity.
 
@@ -184,7 +186,7 @@ peel-trace-evaluation-soft-substrates/
 ├── requirements.txt
 ├── runtime.txt
 ├── Peel_Trace_Evaluation_for_Soft_Substrates.ipynb
-├── fabric_peel_guided_core_v1_4_0_rc7.py
+├── fabric_peel_guided_core_v1_4_0_rc15.py
 ├── ScothTapeTpeel.xlsx
 ├── validation_data/
 ├── method_profiles/
@@ -193,3 +195,71 @@ peel-trace-evaluation-soft-substrates/
 ```
 
 Use the root notebook for Binder/Colab. Keep the built-in Scotch reference file read-only; create separate `user_profile_*.json` and `user_benchmark_*.csv/json` files for local datasets.
+
+
+## v1.4.0-rc15 interface and QC-layout updates
+
+This release-candidate keeps the manuscript-baseline method unchanged and focuses on usability before deployment testing.
+
+- QC plots now use one shared layout for reference and user traces, with a full-width status title, figure-level legend, white-backed metric boxes, and tighter save padding to avoid clipping.
+- Step 3 mapping review now includes live-count filters: All sheets, Needs review, Included, Excluded, Low-confidence columns, Trace-integrity warnings/failures, and Unknown group/adhesive/geometry.
+- The default mapping filter is Needs review when any issue exists; otherwise it is All sheets.
+- Step 3 shows a problem-focused banner with counts before mapping confirmation.
+- Multi-sheet selection displays a loading/status banner and hides the replicate-ID field.
+- Important controls have closable help widgets. Benchmark tools remain optional and closed by default.
+
+
+## v1.4.0-rc15 interface-help verification patch
+
+This release-candidate keeps the manuscript-baseline method unchanged and focuses on interface completeness:
+
+- adds individual, closable `?` help for major mapping, profile, analysis, recovery, benchmark, and output-guide controls;
+- keeps detailed audit/output tables closed by default;
+- retains Step 1 hard-stop validation guard for downstream cells;
+- keeps duplicate-run blocking for unchanged file + mapping + profile + backend combinations;
+- preserves rc9 QC-plot layout improvements and live-count Step 3 filters.
+
+
+## v1.4.0-rc15 interface-polish notes
+
+This release candidate adds final workflow polish before public testing:
+
+- Step 2 keeps the large-file / Google Drive / manual-path workflow collapsed unless the user opens it.
+- Step 3 filters show live counts and auto-select filtered sheets for faster batch corrections.
+- Step 3 blocks normal mapping confirmation when included sheets still need review unless the user explicitly acknowledges the remaining issues.
+- Step 5 adds closable help for validation-count, trace-integrity, output-consistency, and full-metric detail tables.
+- Step 6 expands explanations for tail exclusion, drift limit, peak prominence, and strict extrema-spread QC.
+
+The manuscript-baseline equations and locked settings are unchanged from the previous release candidate.
+
+
+## v1.4.0-rc15 interface/profile refinements
+
+This release candidate keeps the manuscript-baseline calculations unchanged. It refines profile creation and recovery-profile reuse:
+
+- User-created profiles are saved as `user_profile_<profile_id>.json`, so later sessions can detect them automatically.
+- Step 4 displays a visible `Save and activate user profile` action in create/edit mode.
+- Step 4 and Step 6 both show sheet-aware window-feasibility cautions and require explicit acknowledgement for advanced short-window or infeasible-window choices.
+- Step 6 can load an existing user profile into the recovery/profile-builder controls.
+- Recovery/profile actions distinguish machine-safe `profile_id`, user-facing display name, and free-text profile note.
+
+
+## v1.4.0-rc15 interface refinements
+
+- Step 3 mapping status now appears at the top of the step so users see the checkpoint before the editor.
+- Step 4 create/edit profile mode now places the **Save and activate user profile** action after the parameter fields, acknowledgments, and sheet-feasibility warnings.
+- User profile IDs are short machine-safe names. Files are automatically saved as `user_profile_<profile_id>.json`, so future sessions can detect them. Common prefixes such as `user_profile_` are stripped if users type them by accident.
+- Step 6 profile-saving guidance clarifies that users should enter only a short ID and download saved JSON profiles from Colab/Binder sessions.
+
+
+## v1.4.0-rc15 interface cleanup notes
+
+- Step 3 now automatically switches from `Needs review (0)` to `All sheets` when no mapping items need review.
+- Step 3 explains whether it is showing all sheets or a review-focused subset.
+- The Step 4 user-profile setting guide is now on demand so the activation button and acknowledgments are easier to find.
+- No manuscript-baseline formulas were changed.
+
+
+## v1.4.0-rc15 interface note
+
+This release restores the stronger Step 4 and Step 6 user-profile guidance: sheet-aware window-feasibility tables, affected-sheet warnings, profile-setting guide, suggested global recovery settings, and explicit acknowledgments for advanced short-window or infeasible-window profiles. The manuscript baseline method remains unchanged.

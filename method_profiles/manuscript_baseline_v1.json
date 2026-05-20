@@ -14,7 +14,7 @@
   "preserve_original_row_order": true,
   "drop_threshold_frac": 0.1,
   "break_proxy_consecutive_points": 1,
-  "version": "v1.4.0-rc7 manuscript-baseline",
+  "version": "v1.4.0-rc15 manuscript-baseline",
   "tool_title": "Peel Trace Evaluation for Soft Substrates",
   "method_profile": "manuscript_baseline_v1",
   "method_profile_hash": "ff942aad454eb996e0e73e941f4631a06354be202dad0a74e75b64b7df953fab",
@@ -23,8 +23,8 @@
   "strict_extrema_spread_check": "advisory in baseline; optional hard fail only in modified mode",
   "notes": "Locked manuscript_baseline_v1. Geometry and input file are user-specific; analysis-sensitive parameters are fixed.",
   "profile_name": "manuscript_baseline_v1",
-  "software_version": "1.4.0-rc7",
+  "software_version": "1.4.0-rc15",
   "method_label": "Manuscript baseline v1",
   "note": "Locked manuscript-baseline analysis-sensitive settings. User profiles should be saved separately and should not overwrite this file.",
-  "software_version_created": "1.4.0-rc7"
+  "software_version_created": "1.4.0-rc15"
 }

@@ -1,2 +1,0 @@
-sheet,fc_N,fci_N,fc_over_w_N_per_mm,fci_over_w_N_per_mm,window_cv_pct,ssa_abs_N,psi_mu_over_sigma,window_start_mm,window_end_mm,peak_count,trough_count
-Example_Test1,1.234,1.456,0.0617,0.0728,5.0,0.25,20.0,10.0,35.0,8,8

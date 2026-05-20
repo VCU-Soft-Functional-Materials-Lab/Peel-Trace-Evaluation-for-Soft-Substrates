@@ -1,6 +1,0 @@
-{
-  "benchmark_type": "USER_BENCHMARK_TEMPLATE",
-  "expected_file": "user_benchmark_expected.csv",
-  "instructions": "Create a trusted run, save selected rows from Step 7 Benchmark Manager, and keep the expected CSV plus metadata JSON with your project/repository. Do not overwrite the bundled Scotch reference benchmark.",
-  "software_version_created": "1.4.0-rc7"
-}

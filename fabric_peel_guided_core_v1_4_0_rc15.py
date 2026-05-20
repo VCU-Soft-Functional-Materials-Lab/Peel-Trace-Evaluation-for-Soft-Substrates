@@ -1,8 +1,8 @@
 """
-fabric_peel_guided_core_v1_4_0_rc7.py
+fabric_peel_guided_core_v1_4_0_rc15.py
 
 Manuscript-guided peel-trace stability analysis backend for soft textile / flexible-laminate
-T-peel data. Version 1.4.0-rc7 intentionally prioritizes paper-replica force-trace metrics over
+T-peel data. Version 1.4.0-rc15 intentionally prioritizes paper-replica force-trace metrics over
 broad fracture-energy analysis.
 
 Core manuscript profile
@@ -25,7 +25,7 @@ It does not compute IC-Peel, Kendall, Gc, or Gci values.
 
 Prepared for the Adhesion Paper Drafting workflow.
 
-Version 1.4.0-rc7 adds window-feasibility warnings, cleaner validation separation, and stronger profile/benchmark guardrails,
+Version 1.4.0-rc15 adds window-feasibility warnings, cleaner validation separation, and stronger profile/benchmark guardrails,
 metric-quality flags, suggested global settings, and improved QC caution banners.
 """
 
@@ -72,7 +72,7 @@ SUPPORTED_DISPLACEMENT_UNITS = {"auto", "mm", "um", "µm", "μm", "cm", "in"}
 _WORKBOOK_DATA_CACHE: Dict[Tuple[str, str], pd.DataFrame] = {}
 
 
-__version__ = "1.4.0-rc7"
+__version__ = "1.4.0-rc15"
 
 # Color-blind-safe, paper-matched palette used consistently in QC plots and guide figures.
 PAPER_COLORS = {
@@ -206,7 +206,7 @@ def manual_review_required_for_result(result: Dict[str, Any]) -> bool:
 
 def build_manuscript_baseline_config(
     input_path: str,
-    output_root: str = "Peel_Analysis_Output_v1_4_0_rc7",
+    output_root: str = "Peel_Analysis_Output_v1_4_0_rc15",
     width_mm: float = 20.0,
     thickness_mm: float = 0.40,
     bond_length_mm: float = 25.0,
@@ -271,7 +271,7 @@ class ManuscriptConfig:
     """Configuration for manuscript-guided paper-replica analysis."""
 
     input_path: str
-    output_root: str = "Peel_Analysis_Output_v1_4_0_rc7"
+    output_root: str = "Peel_Analysis_Output_v1_4_0_rc15"
 
     # Paper/manuscript geometry defaults. Sheet mapping can override these.
     width_mm: float = 20.0
@@ -1157,16 +1157,20 @@ def analyze_trace(trace: TraceInput, config: ManuscriptConfig) -> Tuple[Dict[str
 # Plotting
 # =============================================================================
 
-def make_qc_plot(result: Dict[str, Any], trace_df: pd.DataFrame, outpath: str, config: ManuscriptConfig, validation_status: str = "") -> None:
-    """Create full-trace + zoomed-window QC plot with high-contrast annotations.
 
-    The plot separates metric-computation status from metric-quality flags. A trace can
-    be METRIC PASS while still requiring manual review when Top5/Bot5 points are
-    spatially clustered.
+def make_qc_plot(result: Dict[str, Any], trace_df: pd.DataFrame, outpath: str, config: ManuscriptConfig, validation_status: str = "") -> None:
+    """Create a clean, consistent QC plot for all traces.
+
+    This version uses one shared layout for Scotch reference plots and user traces:
+    a full-width status title, two panels, white-backed annotations, and a
+    figure-level legend outside dense trace regions.
     """
     if trace_df is None or trace_df.empty or "distance_mm" not in trace_df:
         return
     apply_paper_plot_style()
+    from matplotlib.lines import Line2D
+    from matplotlib.patches import Patch
+
     x = trace_df["distance_mm"].to_numpy(float)
     f = trace_df["force_N"].to_numpy(float)
     inwin = trace_df.get("in_selected_window", pd.Series(False, index=trace_df.index)).to_numpy(bool)
@@ -1179,71 +1183,76 @@ def make_qc_plot(result: Dict[str, Any], trace_df: pd.DataFrame, outpath: str, c
     metric_status = str(result.get("status", ""))
     if metric_status == "PASS" and review_required:
         status_text = "METRIC PASS | REVIEW REQUIRED"
+        status_color = QC_COLORS["drop"]
+        status_bg = "#fff8e1"
     elif metric_status == "PASS":
         status_text = "METRIC PASS | QUALITY OK"
+        status_color = "#2e7d32"
+        status_bg = "#f4fbf5"
     else:
-        status_text = f"METRIC {metric_status}"
+        status_text = f"METRIC {metric_status} | DO NOT INTERPRET TOP5/BOTTOM5 METRICS"
+        status_color = "#b71c1c"
+        status_bg = "#ffebee"
     if validation_status:
         status_text += f" | {validation_status}"
 
-    fig, axes = plt.subplots(1, 2, figsize=(17.2, 5.5), constrained_layout=True)
+    fig, axes = plt.subplots(1, 2, figsize=(19.0, 6.4), constrained_layout=False)
     fig.patch.set_facecolor("white")
     fig.patch.set_alpha(1.0)
-    fig.suptitle(
-        f"{result.get('sheet','trace')} | {status_text}",
-        fontsize=13.5,
-        fontweight="bold",
+    fig.subplots_adjust(left=0.065, right=0.985, top=0.80, bottom=0.20, wspace=0.19)
+
+    title = f"{result.get('sheet','trace')} | {status_text}"
+    fig.text(
+        0.5, 0.965, title,
+        ha="center", va="top", fontsize=14.0, fontweight="bold", color="black",
+        bbox=dict(boxstyle="round,pad=0.34", facecolor="white", edgecolor=status_color, linewidth=1.3, alpha=0.99),
     )
 
     if metric_status != "PASS":
-        caution = (
-            "Metric extraction failed for this trace. Do not interpret Fc/Fci/PSI/SSA without reviewing the raw trace and failure reason."
-        )
+        caution = "Metric extraction failed. Review the raw trace and failure reason before using this result."
         fig.text(
-            0.5, 0.935, caution,
-            ha="center", va="center", fontsize=10.5, fontweight="bold", color="#7f0000",
-            bbox=dict(boxstyle="round,pad=0.38", facecolor="#ffebee", edgecolor="#b71c1c", linewidth=1.4, alpha=0.98),
+            0.5, 0.890, caution,
+            ha="center", va="center", fontsize=10.2, fontweight="bold", color="#7f0000",
+            bbox=dict(boxstyle="round,pad=0.35", facecolor="#ffebee", edgecolor="#b71c1c", linewidth=1.25, alpha=0.99),
         )
     elif review_required:
-        caution = (
-            "Caution: metric-quality flags require manual review. Metrics were computed, but should not be interpreted blindly."
-        )
+        caution = "Review required: metrics were computed, but QC flags indicate manual inspection is needed."
         fig.text(
-            0.5, 0.935, caution,
-            ha="center", va="center", fontsize=10.5, fontweight="bold", color="#5d4037",
-            bbox=dict(boxstyle="round,pad=0.38", facecolor="#fff8e1", edgecolor="#DD6B00", linewidth=1.2, alpha=0.98),
+            0.5, 0.890, caution,
+            ha="center", va="center", fontsize=10.2, fontweight="bold", color="#5d4037",
+            bbox=dict(boxstyle="round,pad=0.35", facecolor="#fff8e1", edgecolor=QC_COLORS["drop"], linewidth=1.2, alpha=0.99),
         )
 
     for _ax in axes:
         _ax.set_facecolor("white")
+        for spine in _ax.spines.values():
+            spine.set_linewidth(1.65)
 
-    # ------------------------------------------------------------------
-    # Full-trace panel
-    # ------------------------------------------------------------------
+    # ----------------------------- full trace -----------------------------
     ax = axes[0]
-    ax.plot(x, f, lw=2.0, color=trace_color, label="Force trace", zorder=2)
+    ax.plot(x, f, lw=1.95, color=trace_color, zorder=2)
     if np.any(inwin):
         xs = result.get("window_start_mm", np.nan)
         xe = result.get("window_end_mm", np.nan)
-        ax.axvspan(xs, xe, alpha=0.55, color=QC_COLORS["selected_window"], label="Selected window", zorder=0)
-        ax.axvline(xs, ls="--", lw=1.55, color=QC_COLORS["window_edge"], label="Window start/end", zorder=3)
-        ax.axvline(xe, ls="--", lw=1.55, color=QC_COLORS["window_edge"], zorder=3)
+        ax.axvspan(xs, xe, alpha=0.55, color=QC_COLORS["selected_window"], zorder=0)
+        ax.axvline(xs, ls="--", lw=1.45, color=QC_COLORS["window_edge"], zorder=3)
+        ax.axvline(xe, ls="--", lw=1.45, color=QC_COLORS["window_edge"], zorder=3)
     if np.isfinite(result.get("distance_at_drop_mm", np.nan)):
-        ax.axvline(result.get("distance_at_drop_mm"), ls=":", lw=2.1, color=QC_COLORS["drop"], label="Break/drop proxy", zorder=3)
+        ax.axvline(result.get("distance_at_drop_mm"), ls=":", lw=2.0, color=QC_COLORS["drop"], zorder=3)
 
-    line_specs = [
+    for key, label, style, color in [
         ("fmean_N", "Fmean", "--", QC_COLORS["fmean"]),
         ("fc_N", "Fc", "-.", QC_COLORS["fc"]),
         ("fci_N", "Fci", ":", QC_COLORS["fci"]),
-    ]
-    for key, label, style, color in line_specs:
+    ]:
         val = result.get(key, np.nan)
         if np.isfinite(val):
-            ax.axhline(val, ls=style, lw=2.0, color=color, label=f"{label}={val:.3g} N", zorder=1)
+            ax.axhline(val, ls=style, lw=1.9, color=color, zorder=1)
 
+    ax.set_title("Full force trace", fontsize=12, fontweight="bold", pad=8)
     ax.set_xlabel("Displacement (mm)")
     ax.set_ylabel("Force (N)")
-    ax.grid(True, alpha=0.16)
+    ax.grid(True, alpha=0.15)
     summary = (
         f"Top={result.get('Top_Points','')}, Bot={result.get('Bot_Points','')} | "
         f"Peaks={result.get('peak_count','')}, Troughs={result.get('trough_count','')}\n"
@@ -1253,29 +1262,26 @@ def make_qc_plot(result: Dict[str, Any], trace_df: pd.DataFrame, outpath: str, c
         f"Quality: {quality_flag}"
     )
     ax.text(
-        0.03, 0.04, summary, transform=ax.transAxes, fontsize=8.6, ha="left", va="bottom",
-        bbox=dict(boxstyle="round,pad=0.35", facecolor="white", alpha=0.96, edgecolor="0.55"),
+        0.025, 0.035, summary, transform=ax.transAxes, fontsize=8.5, ha="left", va="bottom",
+        bbox=dict(boxstyle="round,pad=0.35", facecolor="white", alpha=0.98, edgecolor="0.45", linewidth=1.0),
     )
-    ax.legend(fontsize=7.6, loc="upper right", framealpha=0.94, facecolor="white", edgecolor="0.70")
 
-    # ------------------------------------------------------------------
-    # Zoom panel
-    # ------------------------------------------------------------------
+    # ----------------------------- zoom panel -----------------------------
     ax = axes[1]
     if np.any(inwin):
-        ax.plot(x[~inwin], f[~inwin], lw=1.55, alpha=0.36, color=QC_COLORS["outside"], label="Outside selected window")
-        ax.plot(x[inwin], f[inwin], lw=2.55, color=trace_color, label=f"Selected window, CV={result.get('window_cv_pct', np.nan):.1f}%")
+        ax.plot(x[~inwin], f[~inwin], lw=1.45, alpha=0.32, color=QC_COLORS["outside"])
+        ax.plot(x[inwin], f[inwin], lw=2.45, color=trace_color)
         if np.any(peaks):
             ax.scatter(
-                x[peaks], f[peaks], marker="^", s=100,
-                facecolors=QC_COLORS["peak"], edgecolors="black", linewidths=0.9,
-                label="Top5 peaks (n=5)", zorder=6,
+                x[peaks], f[peaks], marker="^", s=96,
+                facecolors=QC_COLORS["peak"], edgecolors="black", linewidths=0.85,
+                zorder=6,
             )
         if np.any(troughs):
             ax.scatter(
-                x[troughs], f[troughs], marker="v", s=100,
-                facecolors=QC_COLORS["trough"], edgecolors="black", linewidths=0.9,
-                label="Bot5 troughs (n=5)", zorder=6,
+                x[troughs], f[troughs], marker="v", s=96,
+                facecolors=QC_COLORS["trough"], edgecolors="black", linewidths=0.85,
+                zorder=6,
             )
         xmin, xmax = float(np.nanmin(x[inwin])), float(np.nanmax(x[inwin]))
         pad = max(1.0, 0.08 * (xmax - xmin))
@@ -1283,31 +1289,55 @@ def make_qc_plot(result: Dict[str, Any], trace_df: pd.DataFrame, outpath: str, c
     else:
         ax.plot(x, f, lw=2.0, color=trace_color)
 
-    for key, label, style, color in [("fc_N", "Fc", "-.", QC_COLORS["fc"]), ("fci_N", "Fci", ":", QC_COLORS["fci"]), ("fmean_N", "Fmean", "--", QC_COLORS["fmean"])]:
+    for key, label, style, color in [
+        ("fc_N", "Fc", "-.", QC_COLORS["fc"]),
+        ("fci_N", "Fci", ":", QC_COLORS["fci"]),
+        ("fmean_N", "Fmean", "--", QC_COLORS["fmean"]),
+    ]:
         val = result.get(key, np.nan)
         if np.isfinite(val):
-            ax.axhline(val, ls=style, lw=2.0, color=color, label=f"{label}={val:.3g} N")
+            ax.axhline(val, ls=style, lw=1.9, color=color)
+
     if review_required:
         txt = (
-            f"Review required: {quality_flag}\n"
+            f"Review: {quality_flag}\n"
             f"Peak span={result.get('peak_spread_mm', np.nan):.2f} mm; "
             f"trough span={result.get('trough_spread_mm', np.nan):.2f} mm"
         )
         ax.text(
-            0.03, 0.96, txt, transform=ax.transAxes, fontsize=8.5, ha="left", va="top",
-            bbox=dict(boxstyle="round,pad=0.30", facecolor="#fff8e1", edgecolor=QC_COLORS["drop"], alpha=0.98),
+            0.025, 0.955, txt, transform=ax.transAxes, fontsize=8.4, ha="left", va="top",
+            bbox=dict(boxstyle="round,pad=0.32", facecolor="#fff8e1", edgecolor=QC_COLORS["drop"], linewidth=1.05, alpha=0.99),
         )
-    ax.set_title("Zoom: selected window + extraction points", fontsize=12, fontweight="bold")
+    ax.set_title("Zoomed selected window + extraction points", fontsize=12, fontweight="bold", pad=8)
     ax.set_xlabel("Displacement (mm)")
     ax.set_ylabel("Force (N)")
-    ax.grid(True, alpha=0.16)
-    ax.legend(fontsize=7.6, loc="lower left", framealpha=0.94, facecolor="white", edgecolor="0.70")
+    ax.grid(True, alpha=0.15)
 
-    for axx in axes:
-        for spine in axx.spines.values():
-            spine.set_linewidth(1.8)
+    # Shared figure-level legend: outside plotting area to avoid covering traces.
+    legend_handles = [
+        Line2D([0], [0], color=trace_color, lw=2.0, label="Force trace"),
+        Patch(facecolor=QC_COLORS["selected_window"], edgecolor="none", alpha=0.55, label="Selected window"),
+        Line2D([0], [0], color=QC_COLORS["window_edge"], lw=1.45, ls="--", label="Window start/end"),
+        Line2D([0], [0], color=QC_COLORS["drop"], lw=2.0, ls=":", label="Break/drop proxy"),
+        Line2D([0], [0], color=QC_COLORS["fc"], lw=1.9, ls="-.", label=f"Fc={result.get('fc_N', np.nan):.3g} N" if np.isfinite(result.get('fc_N', np.nan)) else "Fc"),
+        Line2D([0], [0], color=QC_COLORS["fci"], lw=1.9, ls=":", label=f"Fci={result.get('fci_N', np.nan):.3g} N" if np.isfinite(result.get('fci_N', np.nan)) else "Fci"),
+        Line2D([0], [0], color=QC_COLORS["fmean"], lw=1.9, ls="--", label=f"Fmean={result.get('fmean_N', np.nan):.3g} N" if np.isfinite(result.get('fmean_N', np.nan)) else "Fmean"),
+        Line2D([0], [0], marker="^", color="black", markerfacecolor=QC_COLORS["peak"], lw=0, markersize=8, label="Top5 peaks"),
+        Line2D([0], [0], marker="v", color="black", markerfacecolor=QC_COLORS["trough"], lw=0, markersize=8, label="Bot5 troughs"),
+    ]
+    fig.legend(
+        handles=legend_handles,
+        loc="lower center",
+        bbox_to_anchor=(0.5, 0.035),
+        ncol=5,
+        frameon=True,
+        framealpha=0.98,
+        facecolor="white",
+        edgecolor="0.65",
+        fontsize=8.0,
+    )
 
-    fig.savefig(outpath, dpi=config.dpi, facecolor="white", edgecolor="white", transparent=False, bbox_inches="tight")
+    fig.savefig(outpath, dpi=config.dpi, facecolor="white", edgecolor="white", transparent=False, bbox_inches="tight", pad_inches=0.12)
     plt.close(fig)
 
 
@@ -1961,7 +1991,7 @@ def run_manuscript_pipeline(config: ManuscriptConfig, progress_callback: Optiona
     trace_integrity_file = os.path.join(outdir, "trace_integrity_audit.csv")
     run_history_file = os.path.join(outdir, "run_history.csv")
     provenance_file = os.path.join(outdir, "provenance.json")
-    method_file = os.path.join(outdir, "method_profile_manuscript_baseline_v1_4_0_rc7.json")
+    method_file = os.path.join(outdir, "method_profile_manuscript_baseline_v1_4_0_rc15.json")
 
     results_df.to_csv(paper_metrics_file, index=False)
     group_df.to_csv(group_file, index=False)
@@ -1994,7 +2024,7 @@ def run_manuscript_pipeline(config: ManuscriptConfig, progress_callback: Optiona
 
     method_profile = asdict(config)
     method_profile.update({
-        "version": "v1.4.0-rc7 manuscript-baseline",
+        "version": "v1.4.0-rc15 manuscript-baseline",
         "method_profile": config.method_profile,
         "baseline_integrity": "PASS" if baseline_check["is_manuscript_baseline"] else "NON_MANUSCRIPT_MODIFIED",
         "method_profile_hash": baseline_check["method_profile_hash"],
@@ -2016,7 +2046,7 @@ def run_manuscript_pipeline(config: ManuscriptConfig, progress_callback: Optiona
                 warning_records.append({"sheet": _r.get("sheet", ""), "status": _r.get("status", ""), "warnings": _warn, "failure_reason": _fail})
 
     provenance = {
-        "version": "v1.4.0-rc7 manuscript-baseline",
+        "version": "v1.4.0-rc15 manuscript-baseline",
         "software_versions": software_versions(),
         "timestamp": now_stamp(),
         "input_path": config.input_path,
@@ -2546,7 +2576,7 @@ def print_run_summary(outputs: Dict[str, Any]) -> None:
 
 
 # =============================================================================
-# User profiles and user benchmark helpers (v1.4.0-rc7)
+# User profiles and user benchmark helpers (v1.4.0-rc15)
 # =============================================================================
 
 USER_TUNABLE_PARAMETERS = [
@@ -2745,7 +2775,7 @@ def run_comparison_summary_from_history(run_history: Sequence[Dict[str, Any]]) -
 
 
 # =============================================================================
-# Compact run report writer (v1.4.0-rc7)
+# Compact run report writer (v1.4.0-rc15)
 # =============================================================================
 
 def _report_table(df: pd.DataFrame, max_rows: int = 40) -> str:
