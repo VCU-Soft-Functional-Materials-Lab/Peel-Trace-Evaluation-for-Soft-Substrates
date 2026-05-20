@@ -235,7 +235,7 @@ The root-level notebook and backend are kept at the repository root so Binder, C
     ├── runtime.txt
     ├── Peel_Trace_Evaluation_for_Soft_Substrates.ipynb
     ├── fabric_peel_guided_core_v1_4_0_rc15.py
-    ├── ScothTapeTpeel.xlsx
+    ├── ScotchTapeTpeel.xlsx
     ├── validation_data/
     ├── method_profiles/
     ├── templates/
