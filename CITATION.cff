@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 title: "Peel Trace Evaluation for Soft Substrates"
 version: "1.4.0-rc15"
-message: "If you use this software, please cite the associated manuscript or repository release."
+message: "If you use this software, cite the all-versions Zenodo software DOI for general use, or cite the exact Zenodo version DOI corresponding to the release used for analysis."
 authors:
   - family-names: "Kantepalle"
     given-names: "Bhalaji Yadav"
