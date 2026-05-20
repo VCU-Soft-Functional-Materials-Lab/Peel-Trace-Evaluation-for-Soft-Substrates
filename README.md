@@ -60,6 +60,7 @@ Install the required packages:
 pip install -r requirements.txt
 pip install jupyterlab
 ```
+The Python package dependencies are listed in [`requirements.txt`](requirements.txt). The listed versions reflect the environment used for the manuscript-baseline workflow and Binder-compatible execution.
 
 Start Jupyter:
 
@@ -258,8 +259,8 @@ The root-level notebook and backend are kept at the repository root so Binder, C
         ├── OUTPUT_GUIDE.md
         ├── TROUBLESHOOTING.md
         ├── METHOD_PROFILE.md
-        └── RELEASE_CHECKLIST.md
-        └── peel_trace_workflow_overview.png   
+        ├── RELEASE_CHECKLIST.md
+        └── peel_trace_workflow_overview.png
 
 The root-level Scotch Tape workbook is retained for notebook/Binder compatibility, while `validation_data/` stores the organized validation workbook and expected-output reference file used by the built-in validation step.
 
