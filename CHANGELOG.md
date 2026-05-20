@@ -35,6 +35,7 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Release checklist in `docs/RELEASE_CHECKLIST.md`.
 - Contributor guidance in `CONTRIBUTING.md`.
 - `.gitignore` rules for local environments, notebook checkpoints, and generated analysis outputs.
+- Workflow overview figure in `docs/peel_trace_workflow_overview.png` and README.
 
 ### Changed
 
