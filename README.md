@@ -7,6 +7,79 @@
 
 The notebook converts raw peel traces into protocol-defined descriptors of force level, initiation force, force-trace stability, stick–slip amplitude, displacement/break proxy, and group repeatability. It is designed to support reproducible adhesive screening when a single average peel force is not sufficient to describe trace behavior.
 
+
+## Quick start
+
+### Option 1: Run in Binder
+
+Click the **Launch Binder** badge at the top of this README.
+
+Open:
+
+`Peel_Trace_Evaluation_for_Soft_Substrates.ipynb`
+
+Then run the notebook cells in order from Step 0 through Step 7.
+
+### Option 2: Run locally
+
+Clone the repository:
+
+```
+git clone https://github.com/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates.git
+cd Peel-Trace-Evaluation-for-Soft-Substrates
+```
+
+Create a virtual environment:
+
+```
+python -m venv .venv
+```
+
+Activate the environment.
+
+Windows:
+
+```
+.venv\Scripts\activate
+```
+
+macOS/Linux:
+
+```
+source .venv/bin/activate
+```
+
+Install the required packages:
+
+```
+pip install -r requirements.txt
+pip install jupyterlab
+```
+
+Start Jupyter:
+
+```
+jupyter lab
+```
+
+Open:
+
+`Peel_Trace_Evaluation_for_Soft_Substrates.ipynb`
+
+Run the notebook cells in order.
+
+### Which file should I run?
+
+Run the notebook:
+
+`Peel_Trace_Evaluation_for_Soft_Substrates.ipynb`
+
+Do not run the backend file directly:
+
+`fabric_peel_guided_core_v1_4_0_rc15.py`
+
+The backend file is imported automatically by the notebook.
+
 ## What this tool does
 
 The default workflow computes the manuscript metrics only:
