@@ -183,6 +183,8 @@ After a successful run, start with these outputs:
 
 Use the QC plots before interpreting the numerical metrics. The selected window, retained peaks, and retained valleys should be visually reasonable for the trace.
 
+For a detailed explanation of all output files, see [`docs/OUTPUT_GUIDE.md`](docs/OUTPUT_GUIDE.md).
+
 ## Built-in validation
 
 The notebook includes a Scotch Tape T-peel validation workbook. In the v1.4.0-rc15 backend test, the validation produced:
