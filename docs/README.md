@@ -14,6 +14,12 @@ For most users, start with the main repository [`README.md`](../README.md), then
 | [`METHOD_PROFILE.md`](METHOD_PROFILE.md) | Explanation of the locked manuscript-baseline profile and modified/recovery profiles |
 | [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) | Pre-merge and pre-release checklist for repository maintainers |
 
+## Visual assets
+
+| File | Purpose |
+|---|---|
+| [`peel_trace_workflow_overview.png`](peel_trace_workflow_overview.png) | Workflow overview figure used in the main README to summarize the notebook pipeline from input data to validation, mapping, trace processing, metric extraction, and QC-reviewed outputs |
+
 ## Main workflow file
 
 The main notebook is kept at the repository root for Binder, Colab, and local Jupyter compatibility:
