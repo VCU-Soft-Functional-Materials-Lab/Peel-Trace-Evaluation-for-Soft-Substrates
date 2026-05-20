@@ -1,6 +1,6 @@
 # Peel Trace Evaluation for Soft Substrates — v1.4.0-rc15
 
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20301242-blue)](https://doi.org/10.5281/zenodo.20301242)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20278327-blue)](https://doi.org/10.5281/zenodo.20278327)
 [![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates/main?filepath=Peel_Trace_Evaluation_for_Soft_Substrates.ipynb)
 
 **Peel Trace Evaluation for Soft Substrates** is a manuscript-baseline Jupyter/Colab workflow for analyzing force–displacement peel traces from soft textiles, flexible laminates, wearable-device prototypes, pressure-sensitive adhesive systems, and related compliant bonded materials.
@@ -118,6 +118,16 @@ The exact output-consistency count is dynamic because it depends on exported tab
 ## Citation and license
 
 The repository includes a `CITATION.cff`, Apache-2.0 license, bundled Scotch Tape validation file, manuscript-baseline method profile, and notebook workflow for reproducible peel-trace analysis.
+
+## Software archive
+
+All archived software versions are available through the Zenodo software record:
+
+https://doi.org/10.5281/zenodo.20278327
+
+The specific release candidate used for the manuscript-baseline analysis is:
+
+v1.4.0-rc15: https://doi.org/10.5281/zenodo.20301242
 
 ## v1.4.0-rc15 release-candidate additions
 
