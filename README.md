@@ -229,8 +229,8 @@ For detailed troubleshooting guidance, see [`docs/TROUBLESHOOTING.md`](docs/TROU
 ## Repository layout
 
 The root-level notebook and backend are kept at the repository root so Binder, Colab, and local Jupyter can run without path edits. Supporting files are organized into folders for method profiles, templates, validation data, and documentation.
-
-    Peel-Trace-Evaluation-for-Soft-Substrates/
+```Text
+   Peel-Trace-Evaluation-for-Soft-Substrates/
     ├── README.md
     ├── CHANGELOG.md
     ├── CONTRIBUTING.md
@@ -260,8 +260,11 @@ The root-level notebook and backend are kept at the repository root so Binder, C
         ├── TROUBLESHOOTING.md
         ├── METHOD_PROFILE.md
         ├── RELEASE_CHECKLIST.md
+        ├── GOVERNANCE.md
+        ├── MAINTAINERS.md
+        ├── RELEASE_CHECKLIST.md
         └── peel_trace_workflow_overview.png
-
+```
 The root-level Scotch Tape workbook is retained for notebook/Binder compatibility, while `validation_data/` stores the organized validation workbook and expected-output reference file used by the built-in validation step.
 
 Use the root notebook for Binder, Colab, and local Jupyter. Keep the built-in Scotch Tape reference file read-only. Create separate `user_profile_*.json` and `user_benchmark_*.csv/json` files for local datasets.
@@ -298,9 +301,9 @@ Relevant files include:
 
 - [`.github/CODEOWNERS`](.github/CODEOWNERS) for review ownership
 - [`.github/pull_request_template.md`](.github/pull_request_template.md) for documenting proposed changes
-- [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) for release and archive checks
-- [`GOVERNANCE.md`](GOVERNANCE.md) for project governance expectations
-- [`MAINTAINERS.md`](MAINTAINERS.md) for maintainer information
+- [`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md) for release and archive checks
+- [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md) for project governance expectations
+- [`docs/MAINTAINERS.md`](docs/MAINTAINERS.md) for maintainer information
 - [`SECURITY.md`](SECURITY.md) for security or sensitive-data reporting
 
 ## Software archive
