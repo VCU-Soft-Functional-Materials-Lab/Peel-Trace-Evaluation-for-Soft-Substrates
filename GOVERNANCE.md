@@ -1,14 +1,14 @@
 # Governance
 
-This file describes repository governance, maintenance responsibility, and review expectations for lab research-code projects.
+This file describes repository governance, maintenance responsibility, and review expectations for **Peel Trace Evaluation for Soft Substrates**.
 
-Update this file for each project repository created from the template.
+This repository is maintained as a manuscript-linked research-software workflow for reproducible peel-trace analysis of soft substrates.
 
 ## Lab and supervision
 
-This repository is maintained under the supervision of Dr. Christina Tang and the VCU Soft Functional Materials Lab.
+This repository is maintained under the supervision of Dr. Christina Tang and the VCU Soft Functional Materials Lab at Virginia Commonwealth University.
 
-Project-specific repositories may support research, analysis workflows, documentation, figures, tables, software releases, manuscripts, posters, theses, reports, or related scholarly outputs.
+The repository supports notebook-based analysis, documentation, validation files, release preparation, and software/archive records associated with peel-trace evaluation of compliant bonded systems.
 
 ## Roles
 
@@ -16,78 +16,86 @@ Project-specific repositories may support research, analysis workflows, document
 
 The PI or supervising investigator provides scientific oversight, approves major project direction, and determines whether repository materials may be made public, archived, or linked to scholarly outputs.
 
-For projects in the VCU Soft Functional Materials Lab, this role is generally held by:
-
 | Name | Role | Affiliation |
 | --- | --- | --- |
 | Dr. Christina Tang | PI / supervising investigator | Virginia Commonwealth University |
 
 ### Project lead
 
-The project lead is responsible for coordinating the project-specific research workflow.
-
-Responsibilities may include:
-
-- defining project goals
-- coordinating data collection or analysis
-- confirming documentation accuracy
-- coordinating with collaborators
-- preparing release or archive materials
-- confirming manuscript or report alignment
-
-Update project-specific information here:
+The project lead coordinates the manuscript-linked workflow, documentation, release preparation, and repository updates.
 
 | Name | Role |
 | --- | --- |
-| Bhalaji Y. Kantepalle | Project lead | 
+| Bhalaji Yadav Kantepalle | Project lead / primary maintainer |
 
 ### Repository maintainer
 
-Repository maintainers are responsible for day-to-day repository upkeep.
+The repository maintainer is responsible for day-to-day repository upkeep.
 
-Responsibilities may include:
+Responsibilities include:
 
-- reviewing pull requests
-- maintaining documentation
-- checking dependency/security alerts
-- managing branches and releases
-- verifying reproducibility-sensitive changes
-- keeping changelog and citation information current
+- reviewing proposed changes;
+- maintaining documentation;
+- checking dependency and security alerts;
+- managing release preparation;
+- verifying reproducibility-sensitive changes;
+- keeping changelog, citation, and archive information current.
 
-Update project-specific information here:
-
-| Name | Role | 
+| Name | Role |
 | --- | --- |
-| Bhalaji Y. Kantepalle | Repository maintainer |
+| Bhalaji Yadav Kantepalle | Repository maintainer |
 
 ## Decision-making
 
-Routine documentation, code, and workflow updates may be reviewed by repository maintainers.
+Routine documentation and repository-structure updates may be reviewed by the repository maintainer.
 
 Major changes should be reviewed with the PI or project lead, especially when they affect:
 
-- data availability
-- analysis settings
-- metric definitions
-- generated outputs
-- figures or tables
-- manuscript-linked results
-- repository visibility
-- licensing
-- DOI/archive records
-- public releases
+- data availability;
+- analysis settings;
+- method-profile behavior;
+- metric definitions;
+- validation files;
+- benchmark files;
+- generated outputs;
+- figures or tables;
+- manuscript-linked results;
+- repository visibility;
+- licensing;
+- DOI/archive records;
+- public releases.
+
+## Manuscript-baseline protection
+
+The locked `manuscript_baseline_v1` profile should not be changed without explicit versioning and disclosure.
+
+Changes should be treated as analysis-sensitive if they affect:
+
+- force/displacement preprocessing;
+- stable-window selection;
+- extrema extraction;
+- metric calculation;
+- quality-control flags;
+- output consistency checks;
+- bundled validation files;
+- expected validation outputs;
+- manuscript-baseline exports.
+
+Modified or recovery workflows should remain labeled as `NON_MANUSCRIPT_MODIFIED` and should not be mixed with manuscript-baseline outputs unless explicitly disclosed.
 
 ## Public release and archiving
 
-Before making a repository public, creating a GitHub Release, connecting Zenodo, or citing the repository in a manuscript, poster, thesis, report, or public archive, confirm:
+Before creating a GitHub Release, linking a Zenodo archive, or citing this software version in a manuscript, poster, thesis, report, or public archive, confirm:
 
-- PI or project-lead approval
-- license decision
-- data availability statement
-- release version
-- archived software/data DOI, if applicable
-- reproducibility checklist
-- repository access and protection settings
+- PI or project-lead approval, if required;
+- license status;
+- data availability statement;
+- release version;
+- changelog entry;
+- citation metadata;
+- archived software/data DOI, if applicable;
+- release checklist completion;
+- repository access and protection settings.
 
 ## Data and intellectual-property caution
 
@@ -103,9 +111,10 @@ When in doubt, use neutral language such as:
 
 Repository access should be reviewed when:
 
-- a project becomes public
-- a manuscript is submitted or accepted
-- a student graduates or leaves the project
-- an outside collaborator joins or leaves
-- a release or DOI archive is created
-- repository ownership or maintenance responsibility changes
+- a student graduates or leaves the project;
+- an outside collaborator joins or leaves;
+- repository visibility changes;
+- a manuscript is submitted or accepted;
+- a GitHub Release is created;
+- a Zenodo archive or DOI record is created or updated;
+- repository maintenance responsibility changes.
