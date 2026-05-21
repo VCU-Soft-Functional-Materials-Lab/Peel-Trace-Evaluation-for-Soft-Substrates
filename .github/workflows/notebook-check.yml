@@ -1,0 +1,72 @@
+name: Repository integrity check
+
+on:
+  pull_request:
+    paths:
+      - "*.ipynb"
+      - "*.py"
+      - ".github/workflows/notebook-check.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "*.ipynb"
+      - "*.py"
+      - ".github/workflows/notebook-check.yml"
+
+jobs:
+  validate-notebook-json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate notebook JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          notebooks = list(Path(".").glob("*.ipynb"))
+
+          if not notebooks:
+              raise SystemExit("No root-level notebooks found.")
+
+          for nb_path in notebooks:
+              print(f"Checking {nb_path}")
+              with nb_path.open("r", encoding="utf-8-sig") as f:
+                  nb = json.load(f)
+
+              if "cells" not in nb:
+                  raise SystemExit(f"{nb_path} is missing 'cells'.")
+
+              for i, cell in enumerate(nb["cells"]):
+                  if "cell_type" not in cell:
+                      raise SystemExit(f"{nb_path}: cell {i} is missing cell_type.")
+                  if "source" not in cell:
+                      raise SystemExit(f"{nb_path}: cell {i} is missing source.")
+
+          print("Notebook JSON validation passed.")
+          PY
+
+  validate-python-syntax:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile Python files
+        run: |
+          python -m compileall -q .

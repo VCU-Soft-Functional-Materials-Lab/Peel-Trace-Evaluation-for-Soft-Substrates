@@ -43,16 +43,20 @@ If any item is checked, briefly explain the impact.
 
 ## Testing / verification
 
-Describe how the change was checked.
+For notebook changes, complete the relevant checks below:
 
-Examples:
+- [ ] Notebook JSON opens correctly and is not corrupted.
+- [ ] All edited cells run without syntax or indentation errors.
+- [ ] Step 1 Scotch Tape reference validation still passes.
+- [ ] Step 2 file upload/manual-path workflow displays correctly.
+- [ ] Step 3 mapping confirmation still works.
+- [ ] Step 4 manuscript-baseline profile can still be activated.
+- [ ] Step 5 analysis can run on the reference/example dataset.
+- [ ] No manuscript-baseline parameters were changed unless intentionally documented.
+- [ ] No metric definitions were changed unless intentionally documented.
+- [ ] No generated output folders, temporary files, or large raw datasets were accidentally committed.
 
-- Ran the notebook from start to finish
-- Ran the analysis script on example data
-- Verified output files were generated
-- Checked plots/tables manually
-- Updated documentation
-- Not applicable
+Additional notes:
 
 ## Manuscript or public-release relevance
 
