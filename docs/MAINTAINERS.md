@@ -8,7 +8,7 @@ This repository is maintained as a reproducible research-software workflow for p
 
 | Name | Role | Contact | Notes |
 | --- | --- | --- | --- |
-| Bhalaji Yadav Kantepalle | Project lead / primary maintainer | kantepalleb@vcu.edu | Coordinates repository updates, documentation, release preparation, and manuscript-baseline workflow maintenance |
+| Bhalaji Yadav Kantepalle | Project lead / primary maintainer | @kbhalajiyadav | Coordinates repository updates, documentation, release preparation, and manuscript-baseline workflow maintenance |
 
 ## PI / supervising investigator
 
