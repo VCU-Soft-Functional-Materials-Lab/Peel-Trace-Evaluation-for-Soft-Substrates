@@ -61,6 +61,8 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Updated the README to keep public-facing instructions concise while linking to detailed documentation files.
 - Removed the duplicate notebook copy from the `notebooks/` folder; the root notebook remains the public Binder/Colab entry point.
 - Updated `requirements.txt` with compatible version ranges for reproducible Binder/local setup.
+- Updated `README.md` to include repository governance and maintenance documentation links.
+- Moved release-checklist guidance to the root-level `RELEASE_CHECKLIST.md` for easier access during release preparation.
 
 ### Safeguards
 
