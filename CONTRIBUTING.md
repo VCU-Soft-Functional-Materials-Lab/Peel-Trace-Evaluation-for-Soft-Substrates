@@ -73,7 +73,7 @@ Before creating a release or merging software changes into `main`, check that:
 - README version and release notes match the notebook/backend version;
 - `CHANGELOG.md` is updated.
 
-For the full pre-merge and release checklist, see [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md).
+For the full pre-merge and release checklist, see [`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md).
 
 ## 6. Modified or recovery profiles
 
