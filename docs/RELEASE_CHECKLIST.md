@@ -1,6 +1,6 @@
-# Release Checklist
+# Release Checklist for Peel Trace Evaluation
 
-Use this checklist before merging major changes into `main` or preparing a GitHub release.
+Use this checklist before merging major changes into `main`, preparing a GitHub release, linking a Zenodo archive, or citing a specific software version in a manuscript, poster, thesis, or report.
 
 ## 1. Repository status
 
@@ -62,11 +62,17 @@ Confirm that these files exist and are current:
 - `README.md`
 - `CHANGELOG.md`
 - `CONTRIBUTING.md`
+- `CITATION.cff`
+- `SECURITY.md`
+- `GOVERNANCE.md`
+- `MAINTAINERS.md`
+- `RELEASE_CHECKLIST.md`
+- `.github/CODEOWNERS`
+- `.github/pull_request_template.md`
 - `docs/WORKFLOW.md`
 - `docs/OUTPUT_GUIDE.md`
 - `docs/TROUBLESHOOTING.md`
 - `docs/METHOD_PROFILE.md`
-- `docs/RELEASE_CHECKLIST.md`
 
 Confirm that README links to the relevant documentation files.
 
@@ -92,7 +98,19 @@ Confirm that repository files are organized as expected:
 - documentation files are in `docs/`;
 - templates are in `templates/`.
 
-## 9. GitHub release
+## 9. Repository protection and maintenance
+
+Before release or major merge, confirm that:
+
+- pull requests are used for nontrivial changes;
+- CODEOWNERS or maintainer review is used where available;
+- force pushes to `main` are blocked where possible;
+- branch deletion is restricted where possible;
+- Dependabot/security settings have been checked;
+- no repository secrets, deploy keys, or unintended webhooks have been added;
+- Zenodo webhook is present only if release archiving is intended.
+
+## 10. GitHub release
 
 Before creating a GitHub release:
 
@@ -102,7 +120,7 @@ Before creating a GitHub release:
 - use `CHANGELOG.md` content as the basis for release notes;
 - verify that the release assets and source archive are correct.
 
-## 10. Zenodo release
+## 11. Zenodo release
 
 If a new GitHub release is archived on Zenodo:
 
