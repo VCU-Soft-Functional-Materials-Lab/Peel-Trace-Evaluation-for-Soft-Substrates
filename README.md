@@ -197,10 +197,11 @@ For a detailed explanation of all output files, see [`docs/OUTPUT_GUIDE.md`](doc
 
 The notebook includes a Scotch Tape T-peel validation workbook. In the v1.4.0-rc15 backend test, the validation produced:
 
-- Scotch expected-output validation: `33/33 PASS`
+- Scotch Tape expected-output validation: `33/33 PASS`
 - Output consistency audit: `194/194 PASS`
 
 The exact output-consistency count is dynamic because it depends on exported table schemas and available outputs. Export consistency confirms file-writing integrity; it does not replace QC review of the traces.
+The repository also includes a GitHub Actions workflow for automated Scotch Tape reference validation. This workflow runs the backend manuscript-baseline pipeline against the bundled Scotch Tape validation workbook and fails if the generated validation table reports any failed validation rows.
 
 ## Recommended workflow
 
@@ -229,14 +230,20 @@ For detailed troubleshooting guidance, see [`docs/TROUBLESHOOTING.md`](docs/TROU
 ## Repository layout
 
 The root-level notebook and backend are kept at the repository root so Binder, Colab, and local Jupyter can run without path edits. Supporting files are organized into folders for method profiles, templates, validation data, and documentation.
-```Text
-   Peel-Trace-Evaluation-for-Soft-Substrates/
+```text
+    Peel-Trace-Evaluation-for-Soft-Substrates/
     ├── README.md
     ├── CHANGELOG.md
     ├── CONTRIBUTING.md
     ├── LICENSE
     ├── CITATION.cff
     ├── .gitignore
+    ├── .github/
+    │   ├── CODEOWNERS
+    │   ├── pull_request_template.md
+    │   └── workflows/
+    │       ├── notebook-check.yml
+    │       └── scotch-validation.yml
     ├── requirements.txt
     ├── runtime.txt
     ├── Peel_Trace_Evaluation_for_Soft_Substrates.ipynb
@@ -262,10 +269,9 @@ The root-level notebook and backend are kept at the repository root so Binder, C
         ├── RELEASE_CHECKLIST.md
         ├── GOVERNANCE.md
         ├── MAINTAINERS.md
-        ├── RELEASE_CHECKLIST.md
         └── peel_trace_workflow_overview.png
 ```
-The root-level Scotch Tape workbook is retained for notebook/Binder compatibility, while `validation_data/` stores the organized validation workbook and expected-output reference file used by the built-in validation step.
+The root-level Scotch Tape workbook is retained for notebook/Binder compatibility, while `validation_data/` stores the organized validation workbook and expected-output reference file used by automated reference validation.
 
 Use the root notebook for Binder, Colab, and local Jupyter. Keep the built-in Scotch Tape reference file read-only. Create separate `user_profile_*.json` and `user_benchmark_*.csv/json` files for local datasets.
 
