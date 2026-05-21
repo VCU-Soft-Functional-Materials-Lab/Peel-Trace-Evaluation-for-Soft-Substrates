@@ -45,8 +45,7 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Git attributes configuration through `.gitattributes`.
 - `.gitignore` rules for local environments, notebook checkpoints, and generated analysis outputs.
 - Workflow overview figure in `docs/peel_trace_workflow_overview.png` and documentation index entry in `docs/README.md`.
-
-
+- Added a GitHub Actions workflow for automated Scotch Tape reference validation using the bundled validation workbook.
 
 ### Changed
 
