@@ -1,15 +1,17 @@
-name: Notebook integrity check
+name: Repository integrity check
 
 on:
   pull_request:
     paths:
       - "*.ipynb"
+      - "*.py"
       - ".github/workflows/notebook-check.yml"
   push:
     branches:
       - main
     paths:
       - "*.ipynb"
+      - "*.py"
       - ".github/workflows/notebook-check.yml"
 
 jobs:
@@ -52,3 +54,19 @@ jobs:
 
           print("Notebook JSON validation passed.")
           PY
+
+  validate-python-syntax:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile Python files
+        run: |
+          python -m compileall -q .
