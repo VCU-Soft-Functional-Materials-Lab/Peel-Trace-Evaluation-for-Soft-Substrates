@@ -1,0 +1,74 @@
+name: Documentation update
+description: Suggest or request a documentation change.
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for README, user-guide, output-dictionary, changelog, citation, or other documentation updates.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly describe the documentation issue or requested update.
+      placeholder: "Example: Add missing environment setup instructions."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: doc_type
+    attributes:
+      label: Documentation area
+      description: Which documentation area is affected?
+      options:
+        - README
+        - User guide
+        - Output dictionary
+        - Changelog
+        - Citation file
+        - Installation/environment instructions
+        - Example documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_text
+    attributes:
+      label: Current text or location
+      description: Paste the current text or describe where the issue appears.
+      placeholder: "Example: README.md → Getting started section"
+    validations:
+      required: false
+
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+      description: Describe the correction, addition, or clarification needed.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Priority
+      description: How important is this documentation update?
+      options:
+        - Low
+        - Medium
+        - High
+        - Needed before release or manuscript submission
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add links, screenshots, related files, or other useful context.
+    validations:
+      required: false
