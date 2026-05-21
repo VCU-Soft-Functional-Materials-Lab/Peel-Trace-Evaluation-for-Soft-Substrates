@@ -8,11 +8,13 @@ For most users, start with the main repository [`README.md`](../README.md), then
 
 | File | Purpose |
 |---|---|
-| [`WORKFLOW.md`](WORKFLOW.md) | Step-by-step guide for running the notebook from Step 0 through Step 7 |
-| [`OUTPUT_GUIDE.md`](OUTPUT_GUIDE.md) | Explanation of output files, QC plots, diagnostic files, audits, and provenance records |
-| [`TROUBLESHOOTING.md`](TROUBLESHOOTING.md) | Common notebook, validation, mapping, metric-extraction, and export problems |
-| [`METHOD_PROFILE.md`](METHOD_PROFILE.md) | Explanation of the locked manuscript-baseline profile and modified/recovery profiles |
-| [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) | Pre-merge and pre-release checklist for repository maintainers |
+| `WORKFLOW.md` | Step-by-step guide for running the notebook from Step 0 through Step 7 |
+| `OUTPUT_GUIDE.md` | Explanation of output files, QC plots, diagnostic files, audits, and provenance records |
+| `TROUBLESHOOTING.md` | Common notebook, validation, mapping, metric-extraction, and export problems |
+| `METHOD_PROFILE.md` | Explanation of locked manuscript-baseline settings, user profiles, and modified-profile rules |
+| `RELEASE_CHECKLIST.md` | Pre-merge, validation, GitHub release, and Zenodo archive checklist |
+| `GOVERNANCE.md` | Repository governance, review expectations, and manuscript-baseline protection |
+| `MAINTAINERS.md` | Project lead, maintainer, and PI/supervision information |
 
 ## Visual assets
 
