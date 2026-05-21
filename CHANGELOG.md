@@ -34,8 +34,20 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Documentation index in `docs/README.md`.
 - Release checklist in `docs/RELEASE_CHECKLIST.md`.
 - Contributor guidance in `CONTRIBUTING.md`.
+- Pull request template in `.github/pull_request_template.md` for documenting analysis-sensitive changes before merging.
+- CODEOWNERS file in `.github/CODEOWNERS` for review ownership of reproducibility-sensitive files.
+- Issue templates in `.github/ISSUE_TEMPLATE/` for bug reports and documentation updates.
+- Dependabot configuration in `.github/dependabot.yml` for dependency-maintenance guidance.
+- Security reporting guidance in `SECURITY.md`.
+- Project governance guidance in `GOVERNANCE.md`.
+- Maintainer information in `MAINTAINERS.md`.
+- Root-level release checklist in `RELEASE_CHECKLIST.md`.
+- Repository formatting support through `.editorconfig`.
+- Git attributes configuration through `.gitattributes`.
 - `.gitignore` rules for local environments, notebook checkpoints, and generated analysis outputs.
 - Workflow overview figure in `docs/peel_trace_workflow_overview.png` and documentation index entry in `docs/README.md`.
+
+
 
 ### Changed
 
