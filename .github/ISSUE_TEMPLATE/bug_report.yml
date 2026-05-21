@@ -1,0 +1,91 @@
+name: Bug report
+description: Report a problem with code, notebooks, documentation, or workflow behavior.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to report a reproducible problem. For manuscript-linked repositories, indicate whether the issue may affect analysis results, figures, tables, or archived outputs.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly describe the problem.
+      placeholder: "Example: Notebook fails when loading example input file."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the steps needed to reproduce the issue.
+      placeholder: |
+        1. Open ...
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: false
+
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: What actually happened? Include error messages if available.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Provide relevant software and system details.
+      placeholder: |
+        - Operating system:
+        - Python version:
+        - Conda environment:
+        - Package versions:
+        - Browser, if using a notebook interface:
+    validations:
+      required: false
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Relevant files or outputs
+      description: List relevant scripts, notebooks, input files, outputs, logs, or screenshots.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: reproducibility_impact
+    attributes:
+      label: Reproducibility impact
+      description: Could this issue affect reported or archived results?
+      options:
+        - "No known impact"
+        - "May affect analysis settings"
+        - "May affect input processing"
+        - "May affect outputs, figures, or tables"
+        - "Unknown"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add any other relevant context.
+    validations:
+      required: false

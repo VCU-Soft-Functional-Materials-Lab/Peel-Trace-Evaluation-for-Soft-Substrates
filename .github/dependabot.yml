@@ -1,0 +1,21 @@
+version: 2
+updates:
+  # Check Python package dependencies in requirements.txt.
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - maintenance
+
+  # Check GitHub Actions workflow dependencies.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - maintenance

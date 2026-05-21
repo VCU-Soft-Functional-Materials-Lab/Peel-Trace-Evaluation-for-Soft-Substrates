@@ -1,0 +1,25 @@
+# CODEOWNERS
+
+# This file defines default reviewers for repository changes.
+# Update team names or ownership patterns for each project repository if needed.
+
+# Default ownership for all files.
+* @VCU-Soft-Functional-Materials-Lab/maintainers
+
+# Documentation.
+*.md @VCU-Soft-Functional-Materials-Lab/maintainers
+docs/ @VCU-Soft-Functional-Materials-Lab/maintainers
+
+# GitHub configuration.
+.github/ @VCU-Soft-Functional-Materials-Lab/maintainers
+
+# Environment and dependency files.
+requirements.txt @VCU-Soft-Functional-Materials-Lab/maintainers
+environment.yml @VCU-Soft-Functional-Materials-Lab/maintainers
+pyproject.toml @VCU-Soft-Functional-Materials-Lab/maintainers
+
+# Source code, scripts, notebooks, and tests.
+src/ @VCU-Soft-Functional-Materials-Lab/maintainers
+scripts/ @VCU-Soft-Functional-Materials-Lab/maintainers
+notebooks/ @VCU-Soft-Functional-Materials-Lab/maintainers
+tests/ @VCU-Soft-Functional-Materials-Lab/maintainers

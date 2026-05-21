@@ -70,7 +70,7 @@ Before creating a release or merging software changes into `main`, check that:
 - the notebook imports the correct backend file;
 - output files are generated correctly;
 - output-consistency audit passes;
-- README version matches the notebook/backend version;
+- README version and release notes match the notebook/backend version;
 - `CHANGELOG.md` is updated.
 
 For the full pre-merge and release checklist, see [`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md).

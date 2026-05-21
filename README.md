@@ -290,6 +290,19 @@ Citation information is provided in [`CITATION.cff`](CITATION.cff). The reposito
 
 For contribution, branching, validation, and release-preparation guidance, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
+## Repository governance and maintenance
+
+This manuscript-linked repository uses pull-request review, documented maintainer roles, release checklists, and security reporting guidance to protect reproducibility-sensitive analysis workflows.
+
+Relevant files include:
+
+- [`.github/CODEOWNERS`](.github/CODEOWNERS) for review ownership
+- [`.github/pull_request_template.md`](.github/pull_request_template.md) for documenting proposed changes
+- [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) for release and archive checks
+- [`GOVERNANCE.md`](GOVERNANCE.md) for project governance expectations
+- [`MAINTAINERS.md`](MAINTAINERS.md) for maintainer information
+- [`SECURITY.md`](SECURITY.md) for security or sensitive-data reporting
+
 ## Software archive
 
 All archived software versions are available through the Zenodo software record:
