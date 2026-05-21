@@ -37,9 +37,9 @@ Responsibilities may include:
 
 Update project-specific information here:
 
-| Name | Role | Contact |
-| --- | --- | --- |
-| First Last | Project lead | email@example.com |
+| Name | Role |
+| --- | --- |
+| Bhalaji Y. Kantepalle | Project lead | 
 
 ### Repository maintainer
 
@@ -56,9 +56,9 @@ Responsibilities may include:
 
 Update project-specific information here:
 
-| Name | Role | Contact |
-| --- | --- | --- |
-| First Last | Repository maintainer | email@example.com |
+| Name | Role | 
+| --- | --- |
+| Bhalaji Y. Kantepalle | Repository maintainer |
 
 ## Decision-making
 
