@@ -20,7 +20,7 @@ This repository is maintained as a reproducible research-software workflow for p
 
 | Name | Role | Contact | Responsibilities |
 | --- | --- | --- | --- |
-| Bhalaji Yadav Kantepalle | Repository maintainer | kantepalleb@vcu.edu | Reviews changes, maintains documentation, checks reproducibility-sensitive updates, coordinates release preparation, and tracks DOI/archive consistency |
+| Bhalaji Yadav Kantepalle | Repository maintainer | @kbhalajiyadav | Reviews changes, maintains documentation, checks reproducibility-sensitive updates, coordinates release preparation, and tracks DOI/archive consistency |
 
 ## Maintainer responsibilities
 
