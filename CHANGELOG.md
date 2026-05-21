@@ -39,8 +39,8 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Issue templates in `.github/ISSUE_TEMPLATE/` for bug reports and documentation updates.
 - Dependabot configuration in `.github/dependabot.yml` for dependency-maintenance guidance.
 - Security reporting guidance in `SECURITY.md`.
-- Project governance guidance in `GOVERNANCE.md`.
-- Maintainer information in `MAINTAINERS.md`.
+- Project governance guidance in `docs/GOVERNANCE.md`.
+- Maintainer information in `docs/MAINTAINERS.md`.
 - Repository formatting support through `.editorconfig`.
 - Git attributes configuration through `.gitattributes`.
 - `.gitignore` rules for local environments, notebook checkpoints, and generated analysis outputs.
@@ -60,7 +60,7 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Updated the README to keep public-facing instructions concise while linking to detailed documentation files.
 - Removed the duplicate notebook copy from the `notebooks/` folder; the root notebook remains the public Binder/Colab entry point.
 - Updated `requirements.txt` with compatible version ranges for reproducible Binder/local setup.
-- Updated `README.md` to include repository governance and maintenance documentation links.
+- Updated `README.md` and `docs/README.md` to include repository governance and maintenance documentation links.
 - Release checklist in `docs/RELEASE_CHECKLIST.md`.
 - Updated Peel-specific release checklist in `docs/RELEASE_CHECKLIST.md`.
 
