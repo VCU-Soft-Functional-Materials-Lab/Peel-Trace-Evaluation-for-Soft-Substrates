@@ -66,6 +66,7 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Removed the UTF-8 byte-order mark from `Peel_Trace_Evaluation_for_Soft_Substrates.ipynb` to prevent Binder/Jupyter `NotJSONError` loading failures.
 - Updated the Binder badge to use the `urlpath=tree/...` notebook-opening route.
 - Replaced the corrupted or incorrectly named Scotch Tape validation workbook with the corrected `ScotchTapeTpeel.xlsx` file at the repository root and in `validation_data/`.
+- Improved notebook upload guidance and marked code cells hidden by default for public usability.
 
 ### Safeguards
 
