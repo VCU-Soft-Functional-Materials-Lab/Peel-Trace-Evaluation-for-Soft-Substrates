@@ -63,6 +63,7 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Updated `requirements.txt` with compatible version ranges for reproducible Binder/local setup.
 - Updated `README.md` to include repository governance and maintenance documentation links.
 - Moved release-checklist guidance to the root-level `RELEASE_CHECKLIST.md` for easier access during release preparation.
+- Updated Peel-specific release checklist in `docs/RELEASE_CHECKLIST.md`.
 
 ### Safeguards
 
