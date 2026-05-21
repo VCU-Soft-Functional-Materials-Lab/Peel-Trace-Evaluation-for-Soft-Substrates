@@ -1,0 +1,32 @@
+# Normalize text files for consistent line endings across operating systems.
+* text=auto
+
+# Markdown, Python, YAML, TOML, JSON, and text files should use LF line endings.
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.cff text eol=lf
+
+# Treat common binary/research files as binary.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.xlsx binary
+*.xls binary
+*.docx binary
+*.pptx binary
+*.zip binary
+*.h5 binary
+*.hdf5 binary
+*.mat binary
+*.tif binary
+*.tiff binary
+*.mp4 binary
+*.avi binary
+*.mov binary
