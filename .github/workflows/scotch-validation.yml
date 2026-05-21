@@ -1,0 +1,89 @@
+name: Scotch Tape reference validation
+
+on:
+  pull_request:
+    paths:
+      - "fabric_peel_guided_core_v1_4_0_rc15.py"
+      - "requirements.txt"
+      - "validation_data/**"
+      - ".github/workflows/scotch-validation.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "fabric_peel_guided_core_v1_4_0_rc15.py"
+      - "requirements.txt"
+      - "validation_data/**"
+      - ".github/workflows/scotch-validation.yml"
+
+jobs:
+  run-scotch-reference-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Scotch Tape reference validation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import pandas as pd
+          import fabric_peel_guided_core_v1_4_0_rc15 as fp
+
+          scotch_file = Path("validation_data/ScotchTapeTpeel.xlsx")
+          expected_file = Path("validation_data/expected_scotch_validation.csv")
+
+          if not scotch_file.exists():
+              raise SystemExit(f"Missing validation file: {scotch_file}")
+
+          if not expected_file.exists():
+              raise SystemExit(f"Missing expected validation file: {expected_file}")
+
+          cfg = fp.build_manuscript_baseline_config(
+              input_path=str(scotch_file),
+              output_root="Peel_Analysis_Output_scotch_validation_ci",
+              width_mm=19.0,
+              thickness_mm=0.060,
+              bond_length_mm=25.0,
+              force_unit="N",
+              displacement_unit="mm",
+              assume_global_units=True,
+              export_qc_plots=False,
+              export_group_summary=True,
+              export_excel=False,
+              make_zip=False,
+          )
+
+          outputs = fp.run_manuscript_pipeline(cfg)
+
+          validation = outputs.get("validation", pd.DataFrame())
+
+          if validation.empty:
+              raise SystemExit("Validation table was not generated.")
+
+          if "validation_status" not in validation.columns:
+              raise SystemExit("Validation table is missing 'validation_status' column.")
+
+          n_fail = int((validation["validation_status"] == "FAIL").sum())
+          n_pass = int((validation["validation_status"] == "PASS").sum())
+
+          print(f"Scotch Tape validation PASS rows: {n_pass}")
+          print(f"Scotch Tape validation FAIL rows: {n_fail}")
+
+          if n_fail > 0:
+              print(validation)
+              raise SystemExit("Scotch Tape reference validation failed.")
+
+          print("Scotch Tape reference validation passed.")
+          PY
