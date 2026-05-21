@@ -63,6 +63,9 @@ This changelog is for software, notebook-interface, documentation, and repositor
 - Updated `README.md` and `docs/README.md` to include repository governance and maintenance documentation links.
 - Release checklist in `docs/RELEASE_CHECKLIST.md`.
 - Updated Peel-specific release checklist in `docs/RELEASE_CHECKLIST.md`.
+- Removed the UTF-8 byte-order mark from `Peel_Trace_Evaluation_for_Soft_Substrates.ipynb` to prevent Binder/Jupyter `NotJSONError` loading failures.
+- Updated the Binder badge to use the `urlpath=tree/...` notebook-opening route.
+- Replaced the corrupted or incorrectly named Scotch Tape validation workbook with the corrected `ScotchTapeTpeel.xlsx` file at the repository root and in `validation_data/`.
 
 ### Safeguards
 
