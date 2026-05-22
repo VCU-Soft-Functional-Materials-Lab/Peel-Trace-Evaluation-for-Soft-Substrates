@@ -237,6 +237,8 @@ The root-level notebook and backend are kept at the repository root so Binder, C
     ├── CONTRIBUTING.md
     ├── LICENSE
     ├── CITATION.cff
+    ├── .editorconfig
+    ├── .gitattributes
     ├── .gitignore
     ├── .github/
     │   ├── CODEOWNERS
