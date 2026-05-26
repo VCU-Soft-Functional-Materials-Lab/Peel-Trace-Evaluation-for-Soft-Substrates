@@ -20,7 +20,8 @@ For most users, start with the main repository [`README.md`](../README.md), then
 
 | File | Purpose |
 |---|---|
-| [`peel_trace_workflow_overview.png`](peel_trace_workflow_overview.png) | Workflow overview figure used in the main README to summarize the notebook pipeline from input data to validation, mapping, trace processing, metric extraction, and QC-reviewed outputs |
+| [`peel_trace_workflow_overview.png`](peel_trace_workflow_overview.png) | Workflow overview figure used in the main README to summarize the notebook pipeline from input data to validation, mapping, trace processing, metric extraction, and QC-reviewed outputs. |
+| [`example_outputs/scotch_tape_qc_trace.png`](example_outputs/scotch_tape_qc_trace.png) | Representative QC plot used in the main README to show a processed peel trace, selected analysis window, Top5/Bot5 extraction points, and force-level descriptors. |
 
 ## Main workflow file
 
