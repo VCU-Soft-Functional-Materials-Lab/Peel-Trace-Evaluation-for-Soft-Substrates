@@ -26,7 +26,7 @@ This repository supports the manuscript-baseline workflow associated with *Multi
 The notebook exports QC plots and tabular reports so numerical metrics can be checked against the original force trace before interpretation.
 
 <p align="center">
-  <img src="docs/example_outputs/scotch_tape_qc_trace.png" alt="Example QC plot showing a peel force trace and selected analysis region" width="850">
+  <img src="docs/example_outputs/scotch_tape_qc_trace.png" alt="Example QC plot showing a peel force trace and selected analysis region" width="1000">
 </p>
 
 **Example QC plot.** Representative force–displacement trace output showing the processed peel trace, selected analysis region, Top5/Bot5 extraction points, force-level descriptors, and extraction diagnostics used to check whether the numerical metrics are mechanically interpretable.
