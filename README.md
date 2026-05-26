@@ -21,6 +21,25 @@ The workflow is designed for cases where average peel force alone can hide impor
 
 This repository supports the manuscript-baseline workflow associated with *Multi-Criteria Selection of Adhesives for Wearable Textiles*.
 
+## Example outputs
+
+The notebook exports QC plots and tabular reports so numerical metrics can be checked against the original force trace before interpretation.
+
+<p align="center">
+  <img src="docs/example_outputs/scotch_tape_qc_trace.png" alt="Example QC plot showing a peel force trace and selected analysis region" width="850">
+</p>
+
+**Example QC plot.** Representative force–displacement trace output showing the processed peel trace, selected analysis region, Top5/Bot5 extraction points, force-level descriptors, and extraction diagnostics used to check whether the numerical metrics are mechanically interpretable.
+
+| Output | Purpose |
+|---|---|
+| Full-trace QC plot | Shows the baseline-corrected force trace, selected analysis window, break/drop proxy, and extraction status. |
+| Selected-window plot | Shows the retained maxima/minima used for initiation force, continuing force, and stick–slip amplitude calculations. |
+| `analysis_report.xlsx` | Consolidates metrics, diagnostics, validation checks, output-consistency checks, and provenance records. |
+| `run_manifest.json` | Records runtime, input, profile, and output metadata for reproducibility. |
+
+Additional output definitions are provided in [`docs/OUTPUT_GUIDE.md`](docs/OUTPUT_GUIDE.md).
+
 ## Quick start
 
 ### Option 1: Run in Binder
@@ -292,7 +311,9 @@ The root-level notebook and backend are kept at the repository root so Binder, C
         ├── RELEASE_CHECKLIST.md
         ├── GOVERNANCE.md
         ├── MAINTAINERS.md
-        └── peel_trace_workflow_overview.png
+        ├── peel_trace_workflow_overview.png
+        └── example_outputs/
+            └── scotch_tape_qc_trace.png
 ```
 The root-level Scotch Tape workbook is retained for notebook/Binder compatibility, while `validation_data/` stores the organized validation workbook and expected-output reference file used by automated reference validation.
 
