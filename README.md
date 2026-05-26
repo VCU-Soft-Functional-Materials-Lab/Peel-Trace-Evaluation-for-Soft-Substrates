@@ -1,17 +1,25 @@
-# Peel Trace Evaluation for Soft Substrates — v1.4.0-rc15
+# Peel Trace Evaluation for Soft Substrates
 
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20278327-blue)](https://doi.org/10.5281/zenodo.20278327)
 [![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates/main?urlpath=tree/Peel_Trace_Evaluation_for_Soft_Substrates.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates/blob/main/Peel_Trace_Evaluation_for_Soft_Substrates.ipynb)
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![License](https://img.shields.io/badge/License-Apache%202.0-green)
 
-**Peel Trace Evaluation for Soft Substrates** is a manuscript-baseline Jupyter/Colab workflow for analyzing force–displacement peel traces from soft textiles, flexible laminates, wearable-device prototypes, pressure-sensitive adhesive systems, and related compliant bonded materials.
+Manuscript-baseline release: `v1.4.0-rc15`
 
-The notebook converts raw peel traces into protocol-defined descriptors of force level, initiation force, force-trace stability, stick–slip amplitude, displacement/break proxy, and group repeatability. It is designed to support reproducible adhesive screening when a single average peel force is not sufficient to describe trace behavior.
+**Multi-criteria peel-trace analysis for soft substrates.**  
+This repository provides a reproducible Jupyter workflow for analyzing force–displacement peel traces from **soft textiles, flexible laminates, wearable-device prototypes, pressure-sensitive adhesive systems, and related compliant bonded materials**.
+
+The workflow is designed for cases where average peel force alone can hide important behavior, including initiation/restart events, force-trace instability, stick–slip oscillations, drift, and poor replicate repeatability. The notebook extracts protocol-defined descriptors of peel force, initiation/restart force, force-trace stability, stick–slip amplitude, displacement/break behavior, diagnostics, and provenance.
 
 <p align="center">
   <img src="docs/peel_trace_workflow_overview.png" alt="Workflow overview for Peel Trace Evaluation for Soft Substrates" width="1000">
 </p>
 
 **Figure.** Workflow overview for the Peel Trace Evaluation for Soft Substrates repository. The notebook validates a built-in Scotch Tape reference file, guides user-data mapping and profile selection, processes force–displacement traces, extracts protocol-defined peel descriptors, and exports QC plots, metrics, diagnostics, and provenance records.
+
+This repository supports the manuscript-baseline workflow associated with *Multi-Criteria Selection of Adhesives for Wearable Textiles*.
 
 ## Quick start
 
@@ -25,18 +33,30 @@ Open:
 
 Then run the notebook cells in order from Step 0 through Step 7.
 
-### Option 2: Run locally
+Binder launches the full repository environment, including the backend Python file, validation data, and required package environment.
+
+### Option 2: Run in Google Colab
+
+Click the **Open in Colab** badge at the top of this README.
+
+Then run **Step 0** first. In Colab, the notebook automatically clones the repository if the backend file is not already available. This makes Colab behave more like Binder without requiring the user to manually set up the repository.
+
+After Step 0 finishes successfully, continue running the notebook cells in order from Step 1 through Step 7.
+
+Note: Colab uses its own preinstalled scientific Python stack. The notebook does not force-install the full `requirements.txt` file inside Colab because replacing NumPy/SciPy in an active Colab runtime can cause package mismatch errors.
+
+### Option 3: Run locally
 
 Clone the repository:
 
-```
+```bash
 git clone https://github.com/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates.git
 cd Peel-Trace-Evaluation-for-Soft-Substrates
 ```
 
 Create a virtual environment:
 
-```
+```bash
 python -m venv .venv
 ```
 
@@ -44,27 +64,28 @@ Activate the environment.
 
 Windows:
 
-```
+```bash
 .venv\Scripts\activate
 ```
 
 macOS/Linux:
 
-```
+```bash
 source .venv/bin/activate
 ```
 
 Install the required packages:
 
-```
+```bash
 pip install -r requirements.txt
 pip install jupyterlab
 ```
+
 The Python package dependencies are listed in [`requirements.txt`](requirements.txt). The listed versions reflect the environment used for the manuscript-baseline workflow and Binder-compatible execution.
 
 Start Jupyter:
 
-```
+```bash
 jupyter lab
 ```
 
