@@ -4,6 +4,37 @@ All notable changes to this repository are documented here.
 
 This changelog is for software, notebook-interface, documentation, and repository-structure changes. The manuscript-baseline method profile should not be changed without explicit versioning and disclosure.
 
+## Unreleased
+
+### Method status
+
+- Manuscript-baseline calculations are unchanged.
+- No metric definitions, preprocessing settings, analysis thresholds, validation thresholds, or backend calculations were changed.
+- This update improves repository usability, Colab launch behavior, README first-screen clarity, README visual documentation, and notebook text readability only.
+
+### Added
+
+- Added a Google Colab badge to the README.
+- Added Google Colab quick-start instructions explaining that Step 0 automatically clones the repository when the backend file is missing.
+- Added Colab-safe Step 0 bootstrap logic to the notebook so Colab can load the backend module without requiring manual repository setup.
+- Added a representative QC plot under `docs/example_outputs/scotch_tape_qc_trace.png`.
+- Added an Example outputs section to the README showing a processed peel trace, selected analysis window, Top5/Bot5 extraction points, force descriptors, and QC diagnostics.
+- Documented the new README visual asset in `docs/README.md`.
+
+### Changed
+
+- Simplified the README title by moving `v1.4.0-rc15` from the main heading into a separate manuscript-baseline release line.
+- Revised the README opening description to frame the repository as a multi-criteria peel-trace analysis workflow for soft substrates.
+- Updated the README Quick start section to separate Binder, Colab, and local execution paths.
+- Updated the README repository layout tree to include `docs/example_outputs/`.
+- Cleaned notebook text-encoding artifacts in displayed markdown and UI labels, including corrupted dash, multiplication, inequality, registered-trademark, bullet, and stick–slip symbols.
+
+### Notes
+
+- In Colab, the notebook intentionally does not force-install the full `requirements.txt` file because replacing NumPy/SciPy inside an active Colab runtime can cause package mismatch errors.
+- Binder and local installations continue to use the repository environment and `requirements.txt`.
+- The new example QC image is a README display asset and does not change the analysis workflow or generated manuscript-baseline outputs.
+
 ## v1.4.0-rc15
 
 ### Method status
