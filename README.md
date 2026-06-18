@@ -3,8 +3,7 @@
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20278327-blue)](https://doi.org/10.5281/zenodo.20278327)
 [![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates/main?urlpath=tree/Peel_Trace_Evaluation_for_Soft_Substrates.ipynb)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates/blob/main/Peel_Trace_Evaluation_for_Soft_Substrates.ipynb)
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![License](https://img.shields.io/badge/License-Apache%202.0-green)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green)](./LICENSE)
 
 Manuscript-baseline release: `v1.4.0-rc15`
 
