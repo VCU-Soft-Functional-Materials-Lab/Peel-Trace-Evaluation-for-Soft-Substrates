@@ -18,7 +18,14 @@ The workflow is designed for cases where average peel force alone can hide impor
 
 **Figure.** Workflow overview for the Peel Trace Evaluation for Soft Substrates repository. The notebook validates a built-in Scotch Tape reference file, guides user-data mapping and profile selection, processes force–displacement traces, extracts protocol-defined peel descriptors, and exports QC plots, metrics, diagnostics, and provenance records.
 
-This repository supports the manuscript-baseline workflow associated with *Multi-Criteria Selection of Adhesives for Wearable Textiles*.
+## Associated publication and research records
+
+- **Published article:** Kantepalle, B. Y.; Epitawala Arachchige, U.; Joung, D.; Tang, C. *Multi-Criteria Selection of Adhesives for Wearable Textiles*. *Polymers* 2026, 18(12), 1504. https://doi.org/10.3390/polym18121504
+- **Source data:** https://doi.org/10.5281/zenodo.20278428
+- **Software archive, all versions:** https://doi.org/10.5281/zenodo.20278327
+- **Software release used for the published analysis:** [`v1.4.0-rc15`](https://github.com/VCU-Soft-Functional-Materials-Lab/Peel-Trace-Evaluation-for-Soft-Substrates/releases/tag/v1.4.0-rc15), archived at https://doi.org/10.5281/zenodo.20301242
+
+**Related scholarly record:** M.S. thesis repository record, https://doi.org/10.25772/f6wc-rh09 (full manuscript under repository embargo until July 20, 2031)
 
 ## Example outputs
 
@@ -354,13 +361,3 @@ Relevant files include:
 - [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md) for project governance expectations
 - [`docs/MAINTAINERS.md`](docs/MAINTAINERS.md) for maintainer information
 - [`SECURITY.md`](SECURITY.md) for security or sensitive-data reporting
-
-## Software archive
-
-All archived software versions are available through the Zenodo software record:
-
-https://doi.org/10.5281/zenodo.20278327
-
-The specific release candidate used for the manuscript-baseline analysis is:
-
-v1.4.0-rc15: https://doi.org/10.5281/zenodo.20301242
